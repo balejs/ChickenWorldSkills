@@ -52,3 +52,37 @@
 - [native-crash-analysis](native-crash-analysis.md) - Native crash analysis
 - [esp32-crash-analysis](esp32-crash-analysis.md) - ESP32 crash analysis
 - [chickenworld-testing](chickenworld-testing.md) - Testing procedures
+
+---
+
+## Investigation Finalization
+
+When investigation is complete and ready to merge:
+
+### Step: Wrap Up Investigation
+
+After fix is verified (20 iterations, 0 crashes):
+
+1. **Separate code from docs**:
+   - Production code changes → Cherry-pick to `1.1.0` branch
+   - Investigation docs → Keep in `ChickenDocs/[Project]/`
+
+2. **Follow Git Workflow**:
+   See [chickenworld-git-workflow](chickenworld-git-workflow.md) for:
+   - Commit separation rules
+   - Investigate finalization procedure
+   - Verification checklist
+
+3. **Document Final Status**:
+   - Final investigation document: `ChickenDocs/[Project]/INVESTIGATION_COMPLETE_YYYY-MM-DD.md`
+   - List of commits merged to 1.1.0
+   - Summary of what was investigated
+
+**Key Principle**: Keep `1.1.0` branch clean - only production code, no investigation documentation.
+
+### References
+
+- [GIT_COMMIT_GUIDELINES.md](../../ChickenDocs/Common/GIT_COMMIT_GUIDELINES.md) - Commit format
+- [INVESTIGATION_PROCEDURE.md](../../ChickenDocs/INVESTIGATION_PROCEDURE.md) - Complete investigation workflow
+- [chickenworld-git-workflow](chickenworld-git-workflow.md) - Investigation finalization procedure
+

@@ -196,7 +196,46 @@ AI suggested this fix                             # References AI
 
 ---
 
-## Investigation Branches
+## ChickenWorld Branching Philosophy
+
+### Standard Branch Structure
+
+| Branch | Purpose | Status |
+|--------|---------|--------|
+| **1.1.0** | Main development branch | ✅ Active development |
+| **investigation/yymmddhhmm-* ** | Investigation branches | 📝 Local only (don't push) |
+| **fix/* ** | Bug fix branches | 🔄 For cherry-picking to 1.1.0 |
+| **release tags** | Version tags (1.1.0.1, 1.1.0.2, etc.) | 🏷️ When all tests pass |
+
+### Workflow
+
+1. **Start from 1.1.0**: Always branch off the latest 1.1.0
+2. **Investigation branch**: `git checkout -b investigation/yymmddhhmm-topic`
+3. **Cherry-pick to 1.1.0**: When solution verified, cherry-pick code changes
+4. **Keep docs separate**: Investigation docs stay in ChickenDocs repo
+5. **Tag releases**: Create incremental tags after full test validation
+
+**Key Principle**: 
+- **Code fixes** → Cherry-pick to `1.1.0` branch
+- **Investigation docs** → Stay in `ChickenDocs` repository
+- **Avoid clutter**: Keep 1.1.0 history clean and focused on production code
+
+### Naming Example
+
+```bash
+# Investigation branch (local only)
+git checkout -b investigation/2605211430-memory_leak
+
+# When complete, cherry-pick to 1.1.0
+git checkout 1.1.0
+git cherry-pick <code-commit-hash>
+
+# Tag the release after verification
+git tag 1.1.0.3
+git push origin 1.1.0.3
+```
+
+### Investigation Branches
 
 ### Naming Convention
 ```bash
@@ -213,10 +252,10 @@ git push origin investigation/2605211430-memory_leak
 ```
 
 ### Workflow
-1. Create investigation branch
+1. Create investigation branch from 1.1.0
 2. Document findings in `ChickenDocs/[Project]/INVESTIGATION_*.md`
-3. When solution found, apply fix to main branch
-4. Cherry-pick code fixes to main, leave investigation docs in ChickenDocs
+3. When solution found, verify on 1.1.0 branch
+4. Cherry-pick code fixes to 1.1.0, leave docs in ChickenDocs
 
 ---
 
@@ -322,3 +361,101 @@ git branch -D temp-safety-branch
 **Skills this relies on**:
 - [chickenworld-coding](chickenworld-coding.md) - General coding standards
 - [document-project](document-project.md) - Project documentation
+
+---
+
+## Investigation Finalization Procedure
+
+When concluding an investigation and preparing to merge changes to the main development branch (e.g., `1.1.0`):
+
+### Step 1: Create Safety Branch
+Before starting, save current state:
+```bash
+git checkout -b temp-safety-branch
+git add -A
+git commit -m "temp: save investigation state"
+```
+
+### Step 2: Analyze Commits
+Review each commit on investigation branch:
+```bash
+git log --oneline 1.1.0..investigation/branch-name
+```
+
+For each commit, determine:
+- **Source code** (`src/`, `include/`) → Should go to `1.1.0`
+- **Documentation** (`ChickenDocs/`, `docs/`) → STAY on investigation branch
+- **Configuration** (`platformio.ini`, `.gitignore`) → Should go to `1.1.0`
+- **Test code** (`test/*.cpp`) → STAY on investigation branch (unless fixing production bug)
+- **Test infrastructure** (`pre_build.py`, `test_server.py`) → STAY on investigation branch
+
+### Step 3: Process Commits Systematically
+For each commit:
+
+1. **Clean commit** (only source/config):
+   ```bash
+   git cherry-pick <commit>
+   ```
+
+2. **Mixed commit** (source + docs):
+   ```bash
+   git cherry-pick --no-commit <commit>
+   # Accept source files only
+   git add src/File.cpp include/File.h
+   git checkout -- <doc-files>  # Reject docs
+   git commit -m "<component>: <description>"
+   ```
+
+3. **Documentation-only commit**:
+   - SKIP entirely (leave on investigation branch)
+
+### Step 4: Fix Commit Messages
+Ensure each commit uses proper format:
+- ✅ `src/File: Fix bug in X` (production code)
+- ✅ `config: Update platformio.ini` (configuration)
+- ❌ `fix bug` (too vague)
+- ❌ `docs: fix bug and update config` (mixed concerns)
+
+### Step 5: Final Verification
+After processing all commits:
+
+```bash
+# Check what went to 1.1.0
+git log --oneline 1.1.0
+
+# Compare with investigation branch
+git diff --stat 1.1.0..investigation/branch-name
+
+# Verify no investigation docs in 1.1.0
+git log 1.1.0 --name-only | grep -i "investigation\|ChickenDocs"  # Should be empty
+```
+
+### Step 6: Summary Report
+Document the differences:
+
+**Production changes merged to 1.1.0**:
+- List of source code commits
+- List of configuration changes
+
+**Investigation changes staying on branch**:
+- List of documentation files (ChickenDocs/*)
+- Test code modifications (test/*.cpp)
+- Test infrastructure (pre_build.py, test_server.py)
+
+### Step 7: Cleanup
+```bash
+# Keep investigation branch with all investigation artifacts
+# Keep 1.1.0 clean with only production changes
+# Delete temp-safety-branch
+git branch -D temp-safety-branch
+```
+
+### Key Principle
+**Separate concerns**: Code fixes go to `1.1.0`, investigation documentation stays in `ChickenDocs` repository.
+
+This ensures:
+- Clean, reviewable history on `1.1.0`
+- Complete investigation trail in ChickenDocs
+- Easy to revert code changes without losing documentation
+- Investment docs don't clutter production branch history
+
