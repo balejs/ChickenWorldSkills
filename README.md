@@ -10,7 +10,7 @@
 
 ## Overview
 
-This repository contains **20 skills** that enforce ChickenWorld coding standards, testing procedures, and best practices across all projects.
+This repository contains **21 skills* that enforce ChickenWorld coding standards, testing procedures, and best practices across all projects.
 
 Skills follow **Option B** format:
 - 10-15 lines with workflow + links
@@ -70,7 +70,7 @@ Skills follow **Option B** format:
 |-------|---------|
 | [organize-agents](organize-agents/SKILL.md) | Organize AGENTS.md content |
 | [create-skills](create-skills/SKILL.md) | Create new skills |
-
+| [modify-skills](modify-skills/SKILL.md) | Modify existing skills |
 ### 🗄️ Git & Configuration
 
 | Skill | Purpose |
@@ -151,7 +151,7 @@ Tools used by skills with corresponding skill links:
 
 When creating new skills:
 1. Follow [create-skills](create-skills/SKILL.md) guidelines
-2. Document details in ChickenDocs first
+| [modify-skills](modify-skills/SKILL.md) | Modify existing skills |2. Document details in ChickenDocs first
 3. Keep skill to 10-15 lines with references
 4. Ensure proper ChickenTools integration
 
