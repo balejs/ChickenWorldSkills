@@ -1,3 +1,8 @@
+---
+name: chickenworld-git-workflow
+description: Follow proper Git workflow for ChickenWorld projects
+---
+
 # Skill: ChickenWorld Git Workflow
 
 **Purpose**: Standard Git procedures for ChickenWorld projects, including repository setup and commit guidelines
@@ -351,16 +356,16 @@ git branch -D temp-safety-branch
 
 ## Key References
 
-- [GIT_COMMIT_GUIDELINES.md](../../ChickenDocs/Common/GIT_COMMIT_GUIDELINES.md) - Commit format and rules
-- [MULTIPLE_GITHUB_USERS_SSH_SETUP.md](../../ChickenDocs/Common/MULTIPLE_GITHUB_USERS_SSH_SETUP.md) - SSH host configuration
-- [INVESTIGATION_PROCEDURE.md](../../ChickenDocs/INVESTIGATION_PROCEDURE.md) - Investigation workflow
-- [ChickenNetworkingLib/ChickenNetworkingLib_PROJECT_STRUCTURE.md](../../ChickenDocs/ChickenNetworkingLib/ChickenNetworkingLib_PROJECT_STRUCTURE.md) - Multi-repo structure
+- [GIT_COMMIT_GUIDELINES.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/GIT_COMMIT_GUIDELINES.md) - Commit format and rules
+- [MULTIPLE_GITHUB_USERS_SSH_SETUP.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/MULTIPLE_GITHUB_USERS_SSH_SETUP.md) - SSH host configuration
+- [INVESTIGATION_PROCEDURE.md](/Users/marco/devel/ChickenWorld/ChickenDocs/INVESTIGATION_PROCEDURE.md) - Investigation workflow
+- [ChickenNetworkingLib/ChickenNetworkingLib_PROJECT_STRUCTURE.md](/Users/marco/devel/ChickenWorld/ChickenDocs/ChickenNetworkingLib/ChickenNetworkingLib_PROJECT_STRUCTURE.md) - Multi-repo structure
 
 ---
 
 **Skills this relies on**:
-- [chickenworld-coding](chickenworld-coding.md) - General coding standards
-- [document-project](document-project.md) - Project documentation
+- [chickenworld-coding](../chickenworld-coding/SKILL.md) - General coding standards
+- [document-project](../document-project/SKILL.md) - Project documentation
 
 ---
 

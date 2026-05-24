@@ -1,3 +1,8 @@
+---
+name: create-skills
+description: Create new skills following ChickenWorld documentation organization rules
+---
+
 # Skill: Create New Skills
 
 **Purpose**: Create new skills following ChickenWorld documentation organization rules
@@ -72,9 +77,9 @@ find . -name "*.md" -exec grep -l "relevant keyword" {} \;
 **For each skill, collect ALL relevant ChickenDocs sections**:
 
 **Example**: For a skill about creating TLS connections:
-- [TLS_SNI_REQUIREMENT_2025-11-25.md](../../ChickenDocs/Common/TLS_SNI_REQUIREMENT_2025-11-25.md)
-- [LOGGING_BEST_PRACTICES.md](../../ChickenDocs/Common/LOGGING_BEST_PRACTICES.md)
-- [LOOPED_LISTENER_CIRCULAR_REFERENCE_2025-12-06.md](../../ChickenDocs/Common/LOOPED_LISTENER_CIRCULAR_REFERENCE_2025-12-06.md)
+- [TLS_SNI_REQUIREMENT_2025-11-25.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/TLS_SNI_REQUIREMENT_2025-11-25.md)
+- [LOGGING_BEST_PRACTICES.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/LOGGING_BEST_PRACTICES.md)
+- [LOOPED_LISTENER_CIRCULAR_REFERENCE_2025-12-06.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/LOOPED_LISTENER_CIRCULAR_REFERENCE_2025-12-06.md)
 - [ChickenHttpLib/include/HttpExchange.h](../../ChickenHttpLib/include/HttpExchange.h) - API reference
 - [ChickenHttpLib/test/HttpExchangeTester.cpp](../../ChickenHttpLib/test/HttpExchangeTester.cpp) - Usage examples
 
@@ -103,8 +108,8 @@ find . -name "*.md" -exec grep -l "relevant keyword" {} \;
 - [Document 3](path) - Common pitfalls
 
 **Skills this relies on**:
-- [Skill Name 1](skill-name-1.md)
-- [Skill Name 2](skill-name-2.md)
+- [Skill Name 1](../skill-name-1/SKILL.md)
+- [Skill Name 2](../skill-name-2/SKILL.md)
 ```
 
 ### Step 6: Verify Completeness
@@ -123,20 +128,20 @@ find . -name "*.md" -exec grep -l "relevant keyword" {} \;
 ## Existing Skills (Reference)
 
 **Organizational Skills**:
-- [document-project-docs.md](document-project-docs.md) - Document project-specific details
-- [organize-agents.md](organize-agents.md) - Organize AGENTS.md content
+- [document-project-docs.md](../document-project-docs/SKILL.md) - Document project-specific details
+- [organize-agents.md](../organize-agents/SKILL.md) - Organize AGENTS.md content
 
 **Common Patterns Documented in ChickenDocs**:
-- Logging: [LOGGING_BEST_PRACTICES.md](../../ChickenDocs/Common/LOGGING_BEST_PRACTICES.md)
-- Circular References: [LOOPED_LISTENER_CIRCULAR_REFERENCE_2025-12-06.md](../../ChickenDocs/Common/LOOPED_LISTENER_CIRCULAR_REFERENCE_2025-12-06.md)
-- TLS/SNI: [TLS_SNI_REQUIREMENT_2025-11-25.md](../../ChickenDocs/Common/TLS_SNI_REQUIREMENT_2025-11-25.md)
-- Tokenizer: [development_guidelines.md](../../ChickenDocs/development_guidelines.md#tokenizer-usage-optimization)
-- Lifecycle: [ChickenDocs/Common/CHICKENPTR_LIFECYCLE_CHECKS_ROLLOUT_2026-03-01.md](../../ChickenDocs/Common/CHICKENPTR_LIFECYCLE_CHECKS_ROLLOUT_2026-03-01.md)
+- Logging: [LOGGING_BEST_PRACTICES.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/LOGGING_BEST_PRACTICES.md)
+- Circular References: [LOOPED_LISTENER_CIRCULAR_REFERENCE_2025-12-06.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/LOOPED_LISTENER_CIRCULAR_REFERENCE_2025-12-06.md)
+- TLS/SNI: [TLS_SNI_REQUIREMENT_2025-11-25.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/TLS_SNI_REQUIREMENT_2025-11-25.md)
+- Tokenizer: [development_guidelines.md](/Users/marco/devel/ChickenWorld/ChickenDocs/development_guidelines.md#tokenizer-usage-optimization)
+- Lifecycle: [ChickenDocs/Common/CHICKENPTR_LIFECYCLE_CHECKS_ROLLOUT_2026-03-01.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/CHICKENPTR_LIFECYCLE_CHECKS_ROLLOUT_2026-03-01.md)
 
 **ChickenDocs Structure**:
-- Generic guidelines: [ChickenDocs/Common/](../../ChickenDocs/Common/)
-- Project docs: [ChickenDocs/ChickenSoftwareUpdateLib/](../../ChickenDocs/ChickenSoftwareUpdateLib/)
-- Development practices: [ChickenDocs/development_guidelines.md](../../ChickenDocs/development_guidelines.md)
+- Generic guidelines: [ChickenDocs/Common/](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/)
+- Project docs: [ChickenDocs/ChickenSoftwareUpdateLib/](/Users/marco/devel/ChickenWorld/ChickenDocs/ChickenSoftwareUpdateLib/)
+- Development practices: [ChickenDocs/development_guidelines.md](/Users/marco/devel/ChickenWorld/ChickenDocs/development_guidelines.md)
 
 ---
 
@@ -158,7 +163,7 @@ find . -name "*.md" -exec grep -l "relevant keyword" {} \;
 **CRITICAL**: Always provide domain name as SNI when using IP addresses
 
 **Workflow**:
-1. Read [TLS_SNI_REQUIREMENT_2025-11-25.md](../../ChickenDocs/Common/TLS_SNI_REQUIREMENT_2025-11-25.md)
+1. Read [TLS_SNI_REQUIREMENT_2025-11-25.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/TLS_SNI_REQUIREMENT_2025-11-25.md)
 2. Use MakeHttpExchange with SNI parameter
 3. Add NetworkExchangeStateListener for error handling
 
@@ -184,7 +189,7 @@ find . -name "*.md" -exec grep -l "relevant keyword" {} \;
 2. Find LoopedSocketListener creation
 3. Verify `true` parameter passed
 
-**Reference**: [LOOPED_LISTENER_CIRCULAR_REFERENCE_2025-12-06.md](../../ChickenDocs/Common/LOOPED_LISTENER_CIRCULAR_REFERENCE_2025-12-06.md)
+**Reference**: [LOOPED_LISTENER_CIRCULAR_REFERENCE_2025-12-06.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/LOOPED_LISTENER_CIRCULAR_REFERENCE_2025-12-06.md)
 ```
 
 ---

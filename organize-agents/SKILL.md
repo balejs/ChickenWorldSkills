@@ -1,3 +1,8 @@
+---
+name: organize-agents
+description: Organize AGENTS.md files in ChickenWorld projects
+---
+
 # Skill: Organize AGENTS.md Content
 
 **Purpose**: Systematically move content from AGENTS.md to appropriate ChickenDocs locations, keeping AGENTS.md as minimal index
@@ -70,7 +75,7 @@ cd /Users/marco/devel/ChickenWorld/ChickenDocs
 grep -r "ChickenSoftwareUpdate\|test.*sequenc" . --include="*.md"
 ```
 
-**Reference**: [development_guidelines.md](../../ChickenDocs/development_guidelines.md#documentation-first-investigation) - Documentation-first rule
+**Reference**: [development_guidelines.md](/Users/marco/devel/ChickenWorld/ChickenDocs/development_guidelines.md#documentation-first-investigation) - Documentation-first rule
 
 ### 3. Move Content to Appropriate Locations
 
@@ -86,7 +91,7 @@ grep -r "ChickenSoftwareUpdate\|test.*sequenc" . --include="*.md"
 
 **Reference**:
 - [DOCUMENTATION_ORGANIZATION_RULES.md](DOCUMENTATION_ORGANIZATION_RULES.md) - Organization rules
-- [ChickenNetworkingLib_PROJECT_STRUCTURE.md](../../ChickenDocs/ChickenNetworkingLib/ChickenNetworkingLib_PROJECT_STRUCTURE.md) - Project structure template
+- [ChickenNetworkingLib_PROJECT_STRUCTURE.md](/Users/marco/devel/ChickenWorld/ChickenDocs/ChickenNetworkingLib/ChickenNetworkingLib_PROJECT_STRUCTURE.md) - Project structure template
 
 ### 4. Create Minimal Redirects in AGENTS.md
 
@@ -94,7 +99,7 @@ grep -r "ChickenSoftwareUpdate\|test.*sequenc" . --include="*.md"
 
 ```markdown
 ### Logging
-**See**: [ChickenDocs/Common/LOGGING_BEST_PRACTICES.md](../../ChickenDocs/Common/LOGGING_BEST_PRACTICES.md)
+**See**: [ChickenDocs/Common/LOGGING_BEST_PRACTICES.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/LOGGING_BEST_PRACTICES.md)
 ```
 
 **NOT this** (too detailed for AGENTS.md):
@@ -120,9 +125,9 @@ grep -r "ChickenSoftwareUpdate\|test.*sequenc" . --include="*.md"
 
 | Topic | Reference |
 |-------|-----------|
-| Logging | [ChickenDocs/Common/LOGGING_BEST_PRACTICES.md](../../ChickenDocs/Common/LOGGING_BEST_PRACTICES.md) |
-| Circular References | [ChickenDocs/Common/LOOPED_LISTENER_CIRCULAR_REFERENCE_2025-12-06.md](../../ChickenDocs/Common/LOOPED_LISTENER_CIRCULAR_REFERENCE_2025-12-06.md) |
-| Test Architecture | [ChickenDocs/ChickenSoftwareUpdateLib/TEST_ARCHITECTURE.md](../../ChickenDocs/ChickenSoftwareUpdateLib/TEST_ARCHITECTURE.md) |
+| Logging | [ChickenDocs/Common/LOGGING_BEST_PRACTICES.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/LOGGING_BEST_PRACTICES.md) |
+| Circular References | [ChickenDocs/Common/LOOPED_LISTENER_CIRCULAR_REFERENCE_2025-12-06.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/LOOPED_LISTENER_CIRCULAR_REFERENCE_2025-12-06.md) |
+| Test Architecture | [ChickenDocs/ChickenSoftwareUpdateLib/TEST_ARCHITECTURE.md](/Users/marco/devel/ChickenWorld/ChickenDocs/ChickenSoftwareUpdateLib/TEST_ARCHITECTURE.md) |
 ```
 
 ---

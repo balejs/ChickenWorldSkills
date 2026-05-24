@@ -1,3 +1,8 @@
+---
+name: verify-api-documentation
+description: Verify API documentation follows ChickenWorld standards
+---
+
 # Skill: Verify API Documentation
 
 **Purpose**: Verify API documentation completeness and accuracy
@@ -22,10 +27,10 @@
 4. Fix any discrepancies
 
 **Key references**:
-- [API_DOCUMENTATION_GUIDELINES.md](../../ChickenDocs/API_DOCUMENTATION_GUIDELINES.md) - Doxygen standards
-- [Common/Documentation/Guidelines/INLINE_EXAMPLE_GUIDELINES.md](../../ChickenDocs/Common/Documentation/Guidelines/INLINE_EXAMPLE_GUIDELINES.md) - Example code guidelines
-- [Common/Documentation/Process/DOCUMENTATION_VERIFICATION_QUALITY_PROCESS.md](../../ChickenDocs/Common/Documentation/Process/DOCUMENTATION_VERIFICATION_QUALITY_PROCESS.md) - Verification process
-- [ChickenFundamentalsLib/EXAMPLE_VERIFICATION_COMPLETE_2025-11-10.md](../../ChickenDocs/ChickenFundamentalsLib/EXAMPLE_VERIFICATION_COMPLETE_2025-11-10.md) - Example verification
+- [API_DOCUMENTATION_GUIDELINES.md](/Users/marco/devel/ChickenWorld/ChickenDocs/API_DOCUMENTATION_GUIDELINES.md) - Doxygen standards
+- [Common/Documentation/Guidelines/INLINE_EXAMPLE_GUIDELINES.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/Documentation/Guidelines/INLINE_EXAMPLE_GUIDELINES.md) - Example code guidelines
+- [Common/Documentation/Process/DOCUMENTATION_VERIFICATION_QUALITY_PROCESS.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/Documentation/Process/DOCUMENTATION_VERIFICATION_QUALITY_PROCESS.md) - Verification process
+- [ChickenFundamentalsLib/EXAMPLE_VERIFICATION_COMPLETE_2025-11-10.md](/Users/marco/devel/ChickenWorld/ChickenDocs/ChickenFundamentalsLib/EXAMPLE_VERIFICATION_COMPLETE_2025-11-10.md) - Example verification
 
 **Quality checklist**:
 - ✅ All headers have @file documentation
@@ -35,4 +40,4 @@
 - ✅ Typos and formatting fixed
 
 **Skills this relies on**:
-- [document-project](document-project.md) - Project documentation workflow
+- [document-project](../document-project/SKILL.md) - Project documentation workflow

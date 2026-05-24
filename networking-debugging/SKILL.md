@@ -1,3 +1,8 @@
+---
+name: networking-debugging
+description: Debug networking issues in ChickenWorld applications
+---
+
 # Skill: Networking Debugging
 
 **Purpose**: Debug networking and connection issues in ChickenWorld projects
@@ -26,10 +31,10 @@ pio test -e native -vvv 2>&1 | tee network_debug.log
 ```
 
 **Key references**:
-- [Debugging/uri_path_handling.md](../../ChickenDocs/Debugging/uri_path_handling.md) - URI path handling
-- [ChickenNetworkingLib/ChickenNetworkingLib_PROJECT_STRUCTURE.md](../../ChickenDocs/ChickenNetworkingLib/ChickenNetworkingLib_PROJECT_STRUCTURE.md) - Networking architecture
-- [Common/TLS_SNI_REQUIREMENT_2025-11-25.md](../../ChickenDocs/Common/TLS_SNI_REQUIREMENT_2025-11-25.md) - TLS SNI requirement
-- [Debugging/tls_debugging_procedure.md](../../ChickenDocs/Debugging/tls_debugging_procedure.md) - TLS debugging
+- [Debugging/uri_path_handling.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Debugging/uri_path_handling.md) - URI path handling
+- [ChickenNetworkingLib/ChickenNetworkingLib_PROJECT_STRUCTURE.md](/Users/marco/devel/ChickenWorld/ChickenDocs/ChickenNetworkingLib/ChickenNetworkingLib_PROJECT_STRUCTURE.md) - Networking architecture
+- [Common/TLS_SNI_REQUIREMENT_2025-11-25.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/TLS_SNI_REQUIREMENT_2025-11-25.md) - TLS SNI requirement
+- [Debugging/tls_debugging_procedure.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Debugging/tls_debugging_procedure.md) - TLS debugging
 
 **Common issues**:
 - **400 Bad Request**: Missing '/' in URI path
@@ -37,5 +42,5 @@ pio test -e native -vvv 2>&1 | tee network_debug.log
 - **TLS handshake failed**: Missing SNI or certificate issues
 
 **Skills this relies on**:
-- [chickenworld-coding](chickenworld-coding.md) - Coding standards
-- [chickenworld-testing](chickenworld-testing.md) - Testing procedures
+- [chickenworld-coding](../chickenworld-coding/SKILL.md) - Coding standards
+- [chickenworld-testing](../chickenworld-testing/SKILL.md) - Testing procedures

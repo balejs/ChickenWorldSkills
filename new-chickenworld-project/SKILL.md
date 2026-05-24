@@ -1,3 +1,8 @@
+---
+name: new-chickenworld-project
+description: Create new ChickenWorld projects with proper structure
+---
+
 # Skill: New ChickenWorld Project
 
 **Purpose**: Create new ChickenWorld library projects with proper structure
@@ -31,10 +36,10 @@ NewLibrary/
 - INVESTIGATION_*.md (as needed)
 
 **Key references**:
-- [Common/Documentation/Process/PROJECT_DOCUMENTATION_BLUEPRINT.md](../../ChickenDocs/Common/Documentation/Process/PROJECT_DOCUMENTATION_BLUEPRINT.md) - Project blueprint
-- [ChickenNetworkingLib/ChickenNetworkingLib_PROJECT_STRUCTURE.md](../../ChickenDocs/ChickenNetworkingLib/ChickenNetworkingLib_PROJECT_STRUCTURE.md) - Project template
-- [ChickenSpaceTimeLib/ChickenSpaceTimeLib_PROJECT_STRUCTURE.md](../../ChickenDocs/ChickenSpaceTimeLib/ChickenSpaceTimeLib_PROJECT_STRUCTURE.md) - ESP project template
-- [ChickenFundamentalsLib/REFACTORING_COMPLETE_2025-11-09.md](../../ChickenDocs/ChickenFundamentalsLib/REFACTORING_COMPLETE_2025-11-09.md) - Documentation refactoring
+- [Common/Documentation/Process/PROJECT_DOCUMENTATION_BLUEPRINT.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/Documentation/Process/PROJECT_DOCUMENTATION_BLUEPRINT.md) - Project blueprint
+- [ChickenNetworkingLib/ChickenNetworkingLib_PROJECT_STRUCTURE.md](/Users/marco/devel/ChickenWorld/ChickenDocs/ChickenNetworkingLib/ChickenNetworkingLib_PROJECT_STRUCTURE.md) - Project template
+- [ChickenSpaceTimeLib/ChickenSpaceTimeLib_PROJECT_STRUCTURE.md](/Users/marco/devel/ChickenWorld/ChickenDocs/ChickenSpaceTimeLib/ChickenSpaceTimeLib_PROJECT_STRUCTURE.md) - ESP project template
+- [ChickenFundamentalsLib/REFACTORING_COMPLETE_2025-11-09.md](/Users/marco/devel/ChickenWorld/ChickenDocs/ChickenFundamentalsLib/REFACTORING_COMPLETE_2025-11-09.md) - Documentation refactoring
 
 **Initial setup steps**:
 1. Create directory structure
@@ -45,5 +50,5 @@ NewLibrary/
 6. Write initial API documentation in headers
 
 **Skills this relies on**:
-- [document-project](document-project.md) - Project documentation
-- [chickenworld-coding](chickenworld-coding.md) - Coding standards
+- [document-project](../document-project/SKILL.md) - Project documentation
+- [chickenworld-coding](../chickenworld-coding/SKILL.md) - Coding standards

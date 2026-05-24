@@ -1,3 +1,8 @@
+---
+name: avoid-std-string
+description: Ensure ChickenWorld string types are used instead of std::string
+---
+
 # Skill: Avoid std::string
 
 **Purpose**: Ensure ChickenWorld string types are used instead of std::string
@@ -14,12 +19,12 @@
 1. Use [SString](../ChickenFundamentalsLib/include/SString.h) / [String](../ChickenFundamentalsLib/include/String.h) for text
 2. Use [Buffer](../ChickenFundamentalsLib/include/Buffer.h) / [SBuffer](../ChickenFundamentalsLib/include/SBuffer.h) for raw data
 3. Use [MakeBaseString()](../ChickenFundamentalsLib/include/BaseString.h) for formatting
-4. Read [FORMATTED_STRING_BEST_PRACTICES.md](../../ChickenDocs/Common/FORMATTED_STRING_BEST_PRACTICES.md)
+4. Read [FORMATTED_STRING_BEST_PRACTICES.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/FORMATTED_STRING_BEST_PRACTICES.md)
 
 **Key references**:
-- [development_guidelines.md](../../ChickenDocs/development_guidelines.md#avoiding-stdstring) - Avoiding std::string rule
-- [FORMATTED_STRING_BEST_PRACTICES.md](../../ChickenDocs/Common/FORMATTED_STRING_BEST_PRACTICES.md) - MakeBaseString usage
-- [CHICKENWORLD_LIFECYCLE_MANAGEMENT.md](../../ChickenDocs/Common/CHICKENWORLD_LIFECYCLE_MANAGEMENT.md) - Lifecycle safety
+- [development_guidelines.md](/Users/marco/devel/ChickenWorld/ChickenDocs/development_guidelines.md#avoiding-stdstring) - Avoiding std::string rule
+- [FORMATTED_STRING_BEST_PRACTICES.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/FORMATTED_STRING_BEST_PRACTICES.md) - MakeBaseString usage
+- [CHICKENWORLD_LIFECYCLE_MANAGEMENT.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/CHICKENWORLD_LIFECYCLE_MANAGEMENT.md) - Lifecycle safety
 
 **Skills this relies on**:
-- [chickenworld-coding](chickenworld-coding.md) - General coding standards
+- [chickenworld-coding](../chickenworld-coding/SKILL.md) - General coding standards

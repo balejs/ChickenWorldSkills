@@ -1,3 +1,8 @@
+---
+name: callstack-decoding
+description: Decode ESP32 crash backtraces using decode_callstack.py
+---
+
 # Skill: Callstack Decoding
 
 **Purpose**: Decode ESP32 crash backtraces using decode_callstack.py
@@ -27,7 +32,7 @@ pio test -e esp32dev -vvv 2>&1 | tee crash.log
 **Key references**:
 - [ChickenTools/QUICK_REFERENCE.md](../../ChickenTools/QUICK_REFERENCE.md) - Quick reference
 - [ChickenTools/README.md](../../ChickenTools/README.md) - Full documentation
-- [ChickenDocs/Common/CHICKENTOOLS.md](../../ChickenDocs/Common/CHICKENTOOLS.md) - ChickenTools docs
+- [ChickenDocs/Common/CHICKENTOOLS.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/CHICKENTOOLS.md) - ChickenTools docs
 - [ChickenTools/bin/decode_callstack.py](../../ChickenTools/bin/decode_callstack.py) - Tool source
 
 **Output format**:
@@ -39,4 +44,4 @@ Backtrace: 0x400d5e2c:0x3ffb8d70 0x400d67bc:0x3ffb8d90
 ```
 
 **Skills this relies on**:
-- [esp32-crash-analysis](esp32-crash-analysis.md) - Crash analysis workflow
+- [esp32-crash-analysis](../esp32-crash-analysis/SKILL.md) - Crash analysis workflow

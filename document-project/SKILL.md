@@ -1,3 +1,8 @@
+---
+name: document-project
+description: Document new ChickenWorld projects following established patterns
+---
+
 # Skill: Document Project
 
 **Purpose**: Document new ChickenWorld projects following established standards
@@ -29,10 +34,10 @@ ChickenDocs/[ProjectName]/API_DOCUMENTATION_VERIFICATION.md
 - **Investigations**: `ChickenDocs/[ProjectName]/INVESTIGATION_YYYY-MM-DD.md`
 
 **Key references**:
-- [Common/Documentation/Process/PROJECT_DOCUMENTATION_BLUEPRINT.md](../../ChickenDocs/Common/Documentation/Process/PROJECT_DOCUMENTATION_BLUEPRINT.md) - Complete blueprint
-- [Common/Documentation/Process/PROJECT_DOCUMENTATION_PROCESS.md](../../ChickenDocs/Common/Documentation/Process/PROJECT_DOCUMENTATION_PROCESS.md) - 12-phase process
-- [ChickenNetworkingLib/ChickenNetworkingLib_PROJECT_STRUCTURE.md](../../ChickenDocs/ChickenNetworkingLib/ChickenNetworkingLib_PROJECT_STRUCTURE.md) - Project structure template
-- [ChickenFundamentalsLib/REFACTORING_COMPLETE_2025-11-09.md](../../ChickenDocs/ChickenFundamentalsLib/REFACTORING_COMPLETE_2025-11-09.md) - Documentation refactoring example
+- [Common/Documentation/Process/PROJECT_DOCUMENTATION_BLUEPRINT.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/Documentation/Process/PROJECT_DOCUMENTATION_BLUEPRINT.md) - Complete blueprint
+- [Common/Documentation/Process/PROJECT_DOCUMENTATION_PROCESS.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/Documentation/Process/PROJECT_DOCUMENTATION_PROCESS.md) - 12-phase process
+- [ChickenNetworkingLib/ChickenNetworkingLib_PROJECT_STRUCTURE.md](/Users/marco/devel/ChickenWorld/ChickenDocs/ChickenNetworkingLib/ChickenNetworkingLib_PROJECT_STRUCTURE.md) - Project structure template
+- [ChickenFundamentalsLib/REFACTORING_COMPLETE_2025-11-09.md](/Users/marco/devel/ChickenWorld/ChickenDocs/ChickenFundamentalsLib/REFACTORING_COMPLETE_2025-11-09.md) - Documentation refactoring example
 
 **Skills this relies on**:
-- [organize-agents](organize-agents.md) - Documentation organization
+- [organize-agents](../organize-agents/SKILL.md) - Documentation organization

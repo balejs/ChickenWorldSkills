@@ -1,3 +1,8 @@
+---
+name: dependency-management
+description: Manage PlatformIO dependencies across ChickenWorld projects
+---
+
 # Skill: Dependency Management
 
 **Purpose**: Manage PlatformIO dependencies and library.json updates
@@ -30,10 +35,10 @@ pio test -e native
 ```
 
 **Key references**:
-- [BUILD_PROCEDURES/PlatformIO_Dependency_Management.md](../../ChickenDocs/BUILD_PROCEDURES/PlatformIO_Dependency_Management.md) - Dependency management guide
-- [BUILD_PROCEDURES/Fixing_Issues_In_Library_Dependencies.md](../../ChickenDocs/BUILD_PROCEDURES/Fixing_Issues_In_Library_Dependencies.md) - Fixing dependency issues
-- [ChickenNetworkingLib/ChickenNetworkingLib_PROJECT_STRUCTURE.md](../../ChickenDocs/ChickenNetworkingLib/ChickenNetworkingLib_PROJECT_STRUCTURE.md) - Multi-repo structure
-- [ChickenDocs/Common/CHICKENTOOLS.md](../../ChickenDocs/Common/CHICKENTOOLS.md) - ChickenTools integration
+- [BUILD_PROCEDURES/PlatformIO_Dependency_Management.md](/Users/marco/devel/ChickenWorld/ChickenDocs/BUILD_PROCEDURES/PlatformIO_Dependency_Management.md) - Dependency management guide
+- [BUILD_PROCEDURES/Fixing_Issues_In_Library_Dependencies.md](/Users/marco/devel/ChickenWorld/ChickenDocs/BUILD_PROCEDURES/Fixing_Issues_In_Library_Dependencies.md) - Fixing dependency issues
+- [ChickenNetworkingLib/ChickenNetworkingLib_PROJECT_STRUCTURE.md](/Users/marco/devel/ChickenWorld/ChickenDocs/ChickenNetworkingLib/ChickenNetworkingLib_PROJECT_STRUCTURE.md) - Multi-repo structure
+- [ChickenDocs/Common/CHICKENTOOLS.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/CHICKENTOOLS.md) - ChickenTools integration
 
 **Common scenarios**:
 - **Update dependency**: Push to dependency repo, clean `.pio/libdeps/`, rebuild
@@ -41,5 +46,5 @@ pio test -e native
 - **Production update**: Commit/push dependency, update library.json, test all dependents
 
 **Skills this relies on**:
-- [build-and-test-all](build-and-test-all.md) - Automated dependency validation
-- [chickenworld-testing](chickenworld-testing.md) - Project testing
+- [build-and-test-all](../build-and-test-all/SKILL.md) - Automated dependency validation
+- [chickenworld-testing](../chickenworld-testing/SKILL.md) - Project testing

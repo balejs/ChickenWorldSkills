@@ -1,3 +1,8 @@
+---
+name: tls-debugging
+description: Debug TLS/HTTPS issues in ChickenWorld networking
+---
+
 # Skill: TLS Debugging
 
 **Purpose**: Debug TLS/HTTPS connection and certificate issues
@@ -27,10 +32,10 @@ pio test -e native -vvv 2>&1 | tee tls_debug.log
 ```
 
 **Key references**:
-- [Debugging/tls_debugging_procedure.md](../../ChickenDocs/Debugging/tls_debugging_procedure.md) - Complete TLS debugging guide
-- [Common/TLS_SNI_REQUIREMENT_2025-11-25.md](../../ChickenDocs/Common/TLS_SNI_REQUIREMENT_2025-11-25.md) - SNI requirements
-- [Common/TLS_CERTIFICATE_GENERATION.md](../../ChickenDocs/Common/TLS_CERTIFICATE_GENERATION.md) - Certificate generation
-- [ChickenNetworkingLib/ChickenNetworkingLib_PROJECT_STRUCTURE.md](../../ChickenDocs/ChickenNetworkingLib/ChickenNetworkingLib_PROJECT_STRUCTURE.md) - TLS implementation notes
+- [Debugging/tls_debugging_procedure.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Debugging/tls_debugging_procedure.md) - Complete TLS debugging guide
+- [Common/TLS_SNI_REQUIREMENT_2025-11-25.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/TLS_SNI_REQUIREMENT_2025-11-25.md) - SNI requirements
+- [Common/TLS_CERTIFICATE_GENERATION.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/TLS_CERTIFICATE_GENERATION.md) - Certificate generation
+- [ChickenNetworkingLib/ChickenNetworkingLib_PROJECT_STRUCTURE.md](/Users/marco/devel/ChickenWorld/ChickenDocs/ChickenNetworkingLib/ChickenNetworkingLib_PROJECT_STRUCTURE.md) - TLS implementation notes
 
 **Common error codes**:
 - `-9984` - Certificate verification failed (usually missing SNI)
@@ -38,5 +43,5 @@ pio test -e native -vvv 2>&1 | tee tls_debug.log
 - `-9986` - Certificate has expired
 
 **Skills this relies on**:
-- [chickenworld-testing](chickenworld-testing.md) - Testing procedures
-- [chickenworld-coding](chickenworld-coding.md) - Coding patterns
+- [chickenworld-testing](../chickenworld-testing/SKILL.md) - Testing procedures
+- [chickenworld-coding](../chickenworld-coding/SKILL.md) - Coding patterns

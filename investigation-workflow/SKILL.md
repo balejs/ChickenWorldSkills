@@ -1,3 +1,8 @@
+---
+name: investigation-workflow
+description: Follow systematic investigation procedures for debugging
+---
+
 # Skill: Investigation Workflow
 
 **Purpose**: Follow systematic investigation workflow for bugs/crashes in ChickenWorld projects
@@ -34,10 +39,10 @@
 ```
 
 **Key references**:
-- [ChickenDocs/INVESTIGATION_PROCEDURE.md](../../ChickenDocs/INVESTIGATION_PROCEDURE.md) - Complete investigation procedure
-- [ChickenDocs/Debugging/DEBUGGING_WORKFLOW_LESSONS.md](../../ChickenDocs/Debugging/DEBUGGING_WORKFLOW_LESSONS.md) - Debugging lessons
-- [ChickenDocs/Debugging/FORENSIC_TECHNIQUES.md](../../ChickenDocs/Debugging/FORENSIC_TECHNIQUES.md) - Forensic techniques
-- [ChickenDocs/development_guidelines.md](../../ChickenDocs/development_guidelines.md) - When debugging crashes, when fixing issues
+- [ChickenDocs/INVESTIGATION_PROCEDURE.md](/Users/marco/devel/ChickenWorld/ChickenDocs/INVESTIGATION_PROCEDURE.md) - Complete investigation procedure
+- [ChickenDocs/Debugging/DEBUGGING_WORKFLOW_LESSONS.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Debugging/DEBUGGING_WORKFLOW_LESSONS.md) - Debugging lessons
+- [ChickenDocs/Debugging/FORENSIC_TECHNIQUES.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Debugging/FORENSIC_TECHNIQUES.md) - Forensic techniques
+- [ChickenDocs/development_guidelines.md](/Users/marco/devel/ChickenWorld/ChickenDocs/development_guidelines.md) - When debugging crashes, when fixing issues
 
 **Investigation structure**:
 1. Problem statement
@@ -49,9 +54,9 @@
 7. Verification results
 
 **Skills this relies on**:
-- [native-crash-analysis](native-crash-analysis.md) - Native crash analysis
-- [esp32-crash-analysis](esp32-crash-analysis.md) - ESP32 crash analysis
-- [chickenworld-testing](chickenworld-testing.md) - Testing procedures
+- [native-crash-analysis](../native-crash-analysis/SKILL.md) - Native crash analysis
+- [esp32-crash-analysis](../esp32-crash-analysis/SKILL.md) - ESP32 crash analysis
+- [chickenworld-testing](../chickenworld-testing/SKILL.md) - Testing procedures
 
 ---
 
@@ -68,7 +73,7 @@ After fix is verified (20 iterations, 0 crashes):
    - Investigation docs → Keep in `ChickenDocs/[Project]/`
 
 2. **Follow Git Workflow**:
-   See [chickenworld-git-workflow](chickenworld-git-workflow.md) for:
+   See [chickenworld-git-workflow](../chickenworld-git-workflow/SKILL.md) for:
    - Commit separation rules
    - Investigate finalization procedure
    - Verification checklist
@@ -82,7 +87,7 @@ After fix is verified (20 iterations, 0 crashes):
 
 ### References
 
-- [GIT_COMMIT_GUIDELINES.md](../../ChickenDocs/Common/GIT_COMMIT_GUIDELINES.md) - Commit format
-- [INVESTIGATION_PROCEDURE.md](../../ChickenDocs/INVESTIGATION_PROCEDURE.md) - Complete investigation workflow
-- [chickenworld-git-workflow](chickenworld-git-workflow.md) - Investigation finalization procedure
+- [GIT_COMMIT_GUIDELINES.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/GIT_COMMIT_GUIDELINES.md) - Commit format
+- [INVESTIGATION_PROCEDURE.md](/Users/marco/devel/ChickenWorld/ChickenDocs/INVESTIGATION_PROCEDURE.md) - Complete investigation workflow
+- [chickenworld-git-workflow](../chickenworld-git-workflow/SKILL.md) - Investigation finalization procedure
 

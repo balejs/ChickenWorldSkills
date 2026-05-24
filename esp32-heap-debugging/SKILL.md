@@ -1,3 +1,8 @@
+---
+name: esp32-heap-debugging
+description: Debug heap poisoning issues on ESP32
+---
+
 # Skill: ESP32 Heap Debugging
 
 **Purpose**: Debug ESP32 heap poisoning and memory corruption issues
@@ -27,9 +32,9 @@ idf.py build
 
 **Key references**:
 - [ChickenTools/bin/parse_watchdog_crash_log.py](../../ChickenTools/bin/parse_watchdog_crash_log.py) - Watchdog log parser
-- [Debugging/ESP32_Heap_Poisoning_Guide.md](../../ChickenDocs/Debugging/ESP32_Heap_Poisoning_Guide.md) - Heap debugging guide
-- [ChickenHttpLib_Heap_Poisoning_Investigation.md](../../ChickenDocs/Debugging/ChickenHttpLib_Heap_Poisoning_Investigation.md) - Real case study
-- [Debugging/ESP32_Testing_Procedures.md](../../ChickenDocs/Debugging/ESP32_Testing_Procedures.md) - Testing procedures
+- [Debugging/ESP32_Heap_Poisoning_Guide.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Debugging/ESP32_Heap_Poisoning_Guide.md) - Heap debugging guide
+- [ChickenHttpLib_Heap_Poisoning_Investigation.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Debugging/ChickenHttpLib_Heap_Poisoning_Investigation.md) - Real case study
+- [Debugging/ESP32_Testing_Procedures.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Debugging/ESP32_Testing_Procedures.md) - Testing procedures
 
 **Common causes**:
 - Buffer overflow/underflow
@@ -39,5 +44,5 @@ idf.py build
 - Race conditions with shared memory
 
 **Skills this relies on**:
-- [esp32-crash-analysis](esp32-crash-analysis.md) - Crash analysis workflow
-- [chickenworld-testing](chickenworld-testing.md) - ESP32 testing procedures
+- [esp32-crash-analysis](../esp32-crash-analysis/SKILL.md) - Crash analysis workflow
+- [chickenworld-testing](../chickenworld-testing/SKILL.md) - ESP32 testing procedures

@@ -1,3 +1,8 @@
+---
+name: build-and-test-all
+description: Use ChickenTools build_and_test_all.py for comprehensive validation
+---
+
 # Skill: Build and Test All
 
 **Purpose**: Use ChickenTools build_and_test_all.py for comprehensive validation
@@ -27,9 +32,9 @@
 
 **Key references**:
 - [ChickenTools/README.md](../../ChickenTools/README.md) - Complete tool guide
-- [ChickenDocs/Common/CHICKENTOOLS.md](../../ChickenDocs/Common/CHICKENTOOLS.md) - Documentation reference
+- [ChickenDocs/Common/CHICKENTOOLS.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/CHICKENTOOLS.md) - Documentation reference
 - [ChickenTools/QUICK_REFERENCE.md](../../ChickenTools/QUICK_REFERENCE.md) - Quick command reference
-- [BUILD_PROCEDURES/PlatformIO_Dependency_Management.md](../../ChickenDocs/BUILD_PROCEDURES/PlatformIO_Dependency_Management.md) - Dependency handling
+- [BUILD_PROCEDURES/PlatformIO_Dependency_Management.md](/Users/marco/devel/ChickenWorld/ChickenDocs/BUILD_PROCEDURES/PlatformIO_Dependency_Management.md) - Dependency handling
 
 **Options summary**:
 - `-i, --incremental` - Only test changed projects and dependents
@@ -38,5 +43,5 @@
 - `--deps-html` - Generate interactive HTML dependency graph
 
 **Skills this relies on**:
-- [chickenworld-testing](chickenworld-testing.md) - Testing procedures
-- [dependency-management](dependency-management.md) - Dependency handling
+- [chickenworld-testing](../chickenworld-testing/SKILL.md) - Testing procedures
+- [dependency-management](../dependency-management/SKILL.md) - Dependency handling

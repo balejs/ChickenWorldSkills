@@ -1,3 +1,8 @@
+---
+name: esp32-crash-analysis
+description: Analyze ESP32 crashes using structured debugging techniques
+---
+
 # Skill: ESP32 Crash Analysis
 
 **Purpose**: Analyze and fix ESP32 crashes, Guru Meditation errors, aborts
@@ -18,10 +23,10 @@
 
 **Key references**:
 - [ChickenTools/QUICK_REFERENCE.md](../../ChickenTools/QUICK_REFERENCE.md) - Quick reference
-- [Debugging/ESP32_Testing_Procedures.md](../../ChickenDocs/Debugging/ESP32_Testing_Procedures.md) - ESP32 testing procedures
-- [Debugging/FORENSIC_TECHNIQUES.md](../../ChickenDocs/Debugging/FORENSIC_TECHNIQUES.md) - Forensic techniques
-- [ChickenFundamentalsLib/INVESTIGATION_CHICKENPTR_LIFECYCLE_VALIDATION_2026-02-28.md](../../ChickenDocs/ChickenFundamentalsLib/INVESTIGATION_CHICKENPTR_LIFECYCLE_VALIDATION_2026-02-28.md) - ChickenPtr crash investigation
+- [Debugging/ESP32_Testing_Procedures.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Debugging/ESP32_Testing_Procedures.md) - ESP32 testing procedures
+- [Debugging/FORENSIC_TECHNIQUES.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Debugging/FORENSIC_TECHNIQUES.md) - Forensic techniques
+- [ChickenFundamentalsLib/INVESTIGATION_CHICKENPTR_LIFECYCLE_VALIDATION_2026-02-28.md](/Users/marco/devel/ChickenWorld/ChickenDocs/ChickenFundamentalsLib/INVESTIGATION_CHICKENPTR_LIFECYCLE_VALIDATION_2026-02-28.md) - ChickenPtr crash investigation
 
 **Skills this relies on**:
-- [callstack-decoding](callstack-decoding.md) - Decode crash backtraces
-- [chickenworld-testing](chickenworld-testing.md) - Testing procedures
+- [callstack-decoding](../callstack-decoding/SKILL.md) - Decode crash backtraces
+- [chickenworld-testing](../chickenworld-testing/SKILL.md) - Testing procedures

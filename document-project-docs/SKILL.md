@@ -1,3 +1,8 @@
+---
+name: document-project-docs
+description: Document project-specific details in ChickenDocs
+---
+
 # Skill: Document Project-Specific Details
 
 **Purpose**: Organize and document ChickenWorld project-specific architecture, patterns, and investigations
@@ -24,9 +29,9 @@
 - Complex (many headers, intricate design): Use Architecture docs + Guidelines
 
 **Reference**: 
-- [PROJECT_DOCUMENTATION_BLUEPRINT.md](../../ChickenDocs/Common/Documentation/Process/PROJECT_DOCUMENTATION_BLUEPRINT.md) - Complete documentation process
-- [ChickenDocs/ChickenFundamentalsLib/](../../ChickenDocs/ChickenFundamentalsLib/) - Complex project example
-- [ChickenDocs/ChickenLoggerLib/](../../ChickenDocs/ChickenLoggerLib/) - Simple project example
+- [PROJECT_DOCUMENTATION_BLUEPRINT.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/Documentation/Process/PROJECT_DOCUMENTATION_BLUEPRINT.md) - Complete documentation process
+- [ChickenDocs/ChickenFundamentalsLib/](/Users/marco/devel/ChickenWorld/ChickenDocs/ChickenFundamentalsLib/) - Complex project example
+- [ChickenDocs/ChickenLoggerLib/](/Users/marco/devel/ChickenWorld/ChickenDocs/ChickenLoggerLib/) - Simple project example
 
 ### 2. Document Project Structure
 
@@ -35,8 +40,8 @@
 - Content: Directory layout, dependencies, build system, platform-specific notes
 
 **Reference**:
-- [ChickenNetworkingLib_PROJECT_STRUCTURE.md](../../ChickenDocs/ChickenNetworkingLib/ChickenNetworkingLib_PROJECT_STRUCTURE.md) - Template with multi-repo structure details
-- [ChickenSpaceTimeLib_PROJECT_STRUCTURE.md](../../ChickenDocs/ChickenSpaceTimeLib/ChickenSpaceTimeLib_PROJECT_STRUCTURE.md) - Example with ESP-specific notes
+- [ChickenNetworkingLib_PROJECT_STRUCTURE.md](/Users/marco/devel/ChickenWorld/ChickenDocs/ChickenNetworkingLib/ChickenNetworkingLib_PROJECT_STRUCTURE.md) - Template with multi-repo structure details
+- [ChickenSpaceTimeLib_PROJECT_STRUCTURE.md](/Users/marco/devel/ChickenWorld/ChickenDocs/ChickenSpaceTimeLib/ChickenSpaceTimeLib_PROJECT_STRUCTURE.md) - Example with ESP-specific notes
 
 ### 3. Organize Investigation Findings
 
@@ -49,32 +54,32 @@
 - File naming: `SESSION_YYYYMMDD.md`, `FINDINGS_YYYYMMDD.md`
 
 **Reference**:
-- [ChickenDocs/Common/GIT_COMMIT_GUIDELINES.md](../../ChickenDocs/Common/GIT_COMMIT_GUIDELINES.md) - When to commit investigation docs
-- [development_guidelines.md](../../ChickenDocs/development_guidelines.md) - Documentation-First Investigation rule
+- [ChickenDocs/Common/GIT_COMMIT_GUIDELINES.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/GIT_COMMIT_GUIDELINES.md) - When to commit investigation docs
+- [development_guidelines.md](/Users/marco/devel/ChickenWorld/ChickenDocs/development_guidelines.md) - Documentation-First Investigation rule
 
 ### 4. Follow Common Guidelines
 
 **Check for applicable Common guidelines:**
 
 **Coding patterns**:
-- [LOGGING_BEST_PRACTICES.md](../../ChickenDocs/Common/LOGGING_BEST_PRACTICES.md) - Logging setup and macros
-- [LOOPED_LISTENER_CIRCULAR_REFERENCE_2025-12-06.md](../../ChickenDocs/Common/LOOPED_LISTENER_CIRCULAR_REFERENCE_2025-12-06.md) - Circular reference avoidance
-- [TLS_SNI_REQUIREMENT_2025-11-25.md](../../ChickenDocs/Common/TLS_SNI_REQUIREMENT_2025-11-25.md) - TLS SNI requirements
+- [LOGGING_BEST_PRACTICES.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/LOGGING_BEST_PRACTICES.md) - Logging setup and macros
+- [LOOPED_LISTENER_CIRCULAR_REFERENCE_2025-12-06.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/LOOPED_LISTENER_CIRCULAR_REFERENCE_2025-12-06.md) - Circular reference avoidance
+- [TLS_SNI_REQUIREMENT_2025-11-25.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/TLS_SNI_REQUIREMENT_2025-11-25.md) - TLS SNI requirements
 
 **Development practices**:
-- [development_guidelines.md](../../ChickenDocs/development_guidelines.md) - Debugging, coding, testing guidelines
-- [GIT_COMMIT_GUIDELINES.md](../../ChickenDocs/Common/GIT_COMMIT_GUIDELINES.md) - Commit message and handling rules
+- [development_guidelines.md](/Users/marco/devel/ChickenWorld/ChickenDocs/development_guidelines.md) - Debugging, coding, testing guidelines
+- [GIT_COMMIT_GUIDELINES.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/GIT_COMMIT_GUIDELINES.md) - Commit message and handling rules
 
 ### 5. Align with Standards
 
 **Verify alignment with ChickenWorld standards:**
 
 **API documentation**:
-- [API_DOCUMENTATION_GUIDELINES.md](../../ChickenDocs/API_DOCUMENTATION_GUIDELINES.md) - Doxygen standards
-- [INLINE_EXAMPLE_GUIDELINES.md](../../ChickenDocs/Common/Documentation/Guidelines/INLINE_EXAMPLE_GUIDELINES.md) - Example code standards
+- [API_DOCUMENTATION_GUIDELINES.md](/Users/marco/devel/ChickenWorld/ChickenDocs/API_DOCUMENTATION_GUIDELINES.md) - Doxygen standards
+- [INLINE_EXAMPLE_GUIDELINES.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/Documentation/Guidelines/INLINE_EXAMPLE_GUIDELINES.md) - Example code standards
 
 **Process**:
-- [PROJECT_DOCUMENTATION_PROCESS.md](../../ChickenDocs/Common/Documentation/Process/PROJECT_DOCUMENTATION_PROCESS.md) - 12-phase verification workflow
+- [PROJECT_DOCUMENTATION_PROCESS.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/Documentation/Process/PROJECT_DOCUMENTATION_PROCESS.md) - 12-phase verification workflow
 
 ---
 
@@ -131,9 +136,9 @@ investigation/
 ## Quick Reference
 
 **Core ChickenDocs locations**:
-- Generic guidelines: [ChickenDocs/Common/](../../ChickenDocs/Common/)
-- Development practices: [development_guidelines.md](../../ChickenDocs/development_guidelines.md)
-- Documentation process: [PROJECT_DOCUMENTATION_BLUEPRINT.md](../../ChickenDocs/Common/Documentation/Process/PROJECT_DOCUMENTATION_BLUEPRINT.md)
+- Generic guidelines: [ChickenDocs/Common/](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/)
+- Development practices: [development_guidelines.md](/Users/marco/devel/ChickenWorld/ChickenDocs/development_guidelines.md)
+- Documentation process: [PROJECT_DOCUMENTATION_BLUEPRINT.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/Documentation/Process/PROJECT_DOCUMENTATION_BLUEPRINT.md)
 - Organization rules: [DOCUMENTATION_ORGANIZATION_RULES.md](DOCUMENTATION_ORGANIZATION_RULES.md)
 
 **ChickenSoftwareUpdateLib-specific**:
