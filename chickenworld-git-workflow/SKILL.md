@@ -373,6 +373,26 @@ git branch -D temp-safety-branch
 
 When concluding an investigation and preparing to merge changes to the main development branch (e.g., `1.1.0`):
 
+**CRITICAL RULE: Cherry-Pick Individual Commits, NEVER Merge Investigation Branches**
+
+**Correct Pattern**:
+```bash
+# ✅ GOOD: Cherry-pick production commits individually to 1.1.0
+git checkout 1.1.0
+git cherry-pick <commit-hash>  # Production source code fix
+git cherry-pick <commit-hash>  # Another production fix
+git push origin 1.1.0
+# Investigation branch remains untouched with all logs/docs
+
+# ❌ WRONG: NEVER merge investigation branch to 1.1.0
+git checkout 1.1.0
+git merge investigation/branch-name  # This pollutes 1.1.0 with investigation artifacts!
+```
+
+**Rationale**: Investigation branches contain temporary findings, logs, and test code that should NEVER be in production history. Only cherry-pick commits that contain production code changes (source/config, not docs/test).
+
+**See complete procedure**: [ChickenDocs/INVESTIGATION_PROCEDURE.md](../../../ChickenWorld/ChickenDocs/INVESTIGATION_PROCEDURE.md#step-9-squash-and-merge-source-code-changes-to-main-branch)
+
 ### Step 1: Create Safety Branch
 Before starting, save current state:
 ```bash
@@ -389,68 +409,38 @@ git log --oneline 1.1.0..investigation/branch-name
 
 For each commit, determine:
 - **Source code** (`src/`, `include/`) → Should go to `1.1.0`
-- **Documentation** (`ChickenDocs/`, `docs/`) → STAY on investigation branch
-- **Configuration** (`platformio.ini`, `.gitignore`) → Should go to `1.1.0`
-- **Test code** (`test/*.cpp`) → STAY on investigation branch (unless fixing production bug)
-- **Test infrastructure** (`pre_build.py`, `test_server.py`) → STAY on investigation branch
+- **Test code** (`test/*.cpp`) → Should go to `1.1.0` (test infrastructure is production code)
+- **Configuration** (`platformio.ini`, `.gitignore`, etc.) → Should go to `1.1.0`
+- **Documentation** (`ChickenDocs/`, `docs/`) → Should go to `1.1.0` (guidelines, patterns, findings)
 
-### Step 3: Process Commits Systematically
-For each commit:
+**Exclude from 1.1.0** (stay on investigation branch):
+- Debug logging lines added for troubleshooting
+- Temporary timeout relaxations or test hacks
+- Temporary workarounds specifically for investigation
+- Investigation-specific test files (e.g., `test_test_*_repeat.py`)
+- Investigation log files in `project/investigation/logs/`
 
-1. **Clean commit** (only source/config):
-   ```bash
-   git cherry-pick <commit>
-   ```
+**Key Principle**: Most changes made to make tests pass ARE production code. Only exclude clearly temporary/debugging additions.
 
-2. **Mixed commit** (source + docs):
-   ```bash
-   git cherry-pick --no-commit <commit>
-   # Accept source files only
-   git add src/File.cpp include/File.h
-   git checkout -- <doc-files>  # Reject docs
-   git commit -m "<component>: <description>"
-   ```
+### Step 3: Pre-Merge Verification (CRITICAL)
 
-3. **Documentation-only commit**:
-   - SKIP entirely (leave on investigation branch)
+**See complete procedure**: [ChickenDocs/INVESTIGATION_PROCEDURE.md](../../../ChickenWorld/ChickenDocs/INVESTIGATION_PROCEDURE.md#pre-merge-verification)
 
-### Step 4: Fix Commit Messages
-Ensure each commit uses proper format:
-- ✅ `src/File: Fix bug in X` (production code)
-- ✅ `config: Update platformio.ini` (configuration)
-- ❌ `fix bug` (too vague)
-- ❌ `docs: fix bug and update config` (mixed concerns)
+**Quick checklist**:
+- Search for `TODO/FIXME/HACK/TEMP` in source files
+- Check for debug logging, hardcoded values, investigation references
+- If temporary code found: **STOP and ask user** before merging
 
-### Step 5: Final Verification
-After processing all commits:
+### Steps 4-8: Process, Verify, and Clean Up
 
-```bash
-# Check what went to 1.1.0
-git log --oneline 1.1.0
+**See complete procedures**: [ChickenDocs/INVESTIGATION_PROCEDURE.md](../../../ChickenWorld/ChickenDocs/INVESTIGATION_PROCEDURE.md#step-4-process-commits-systematically)
 
-# Compare with investigation branch
-git diff --stat 1.1.0..investigation/branch-name
-
-# Verify no investigation docs in 1.1.0
-git log 1.1.0 --name-only | grep -i "investigation\|ChickenDocs"  # Should be empty
-```
-
-### Step 6: Summary Report
-Document the differences:
-
-**Production changes merged to 1.1.0**:
-- List of source code commits
-- List of configuration changes
-
-**Investigation changes staying on branch**:
-- List of documentation files (ChickenDocs/*)
-- Test code modifications (test/*.cpp)
-- Test infrastructure (pre_build.py, test_server.py)
-
-### Step 7: Cleanup
-```bash
-# Keep investigation branch with all investigation artifacts
-# Keep 1.1.0 clean with only production changes
+**Quick reference**:
+- **Step 4**: Cherry-pick commits systematically
+- **Step 5**: Fix commit messages to proper format
+- **Step 6**: Final verification (git log, diff, grep for docs)
+- **Step 7**: Summary report (what merged vs what stayed)
+- **Step 8**: Cleanup (delete temp safety branch)
 # Delete temp-safety-branch
 git branch -D temp-safety-branch
 ```
