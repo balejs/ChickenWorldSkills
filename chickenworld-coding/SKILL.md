@@ -21,6 +21,7 @@ description: Enforce ChickenWorld coding standards and best practices
 2. Review [CHICKENWORLD_LIFECYCLE_MANAGEMENT.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/CHICKENWORLD_LIFECYCLE_MANAGEMENT.md)
 3. Check [ESP32_PLATFORM_DIFFERENCES.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/ESP32_PLATFORM_DIFFERENCES.md) for platform-specific code
 4. Review [ARCHITECTURAL_PATTERNS.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/ARCHITECTURAL_PATTERNS.md) for cross-thread patterns
+5. **When modifying dependencies**: See [DEPENDENCY_MODIFICATION_WORKFLOW.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/DEPENDENCY_MODIFICATION_WORKFLOW.md)
 
 **Key references**:
 - [development_guidelines.md](/Users/marco/devel/ChickenWorld/ChickenDocs/development_guidelines.md) - Tokenizer optimization, avoid std::string
@@ -28,6 +29,7 @@ description: Enforce ChickenWorld coding standards and best practices
 - [FORMATTED_STRING_BEST_PRACTICES.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/FORMATTED_STRING_BEST_PRACTICES.md) - MakeBaseString usage
 - [CHICKENWORLD_LIFECYCLE_MANAGEMENT.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/CHICKENWORLD_LIFECYCLE_MANAGEMENT.md) - Lifecycle management
 - [ARCHITECTURAL_PATTERNS.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/ARCHITECTURAL_PATTERNS.md) - Cross-thread safe patterns
+- [DEPENDENCY_MODIFICATION_WORKFLOW.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/DEPENDENCY_MODIFICATION_WORKFLOW.md) - PlatformIO dependency modification workflow
 
 **Skills this relies on**:
 - [chickenworld-testing](../chickenworld-testing/SKILL.md) - Verify code works correctly
