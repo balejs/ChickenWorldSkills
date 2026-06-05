@@ -117,7 +117,8 @@ investigation/
 4. **Developer-facing docs** → project/docs/ (symlink)
 5. **AGENTS.md** → Only minimal references and index
 
-**Reference**: [DOCUMENTATION_ORGANIZATION_RULES.md](DOCUMENTATION_ORGANIZATION_RULES.md) - Complete organization rules
+**Reference**: [DOCUMENTATION_ORGANIZATION_RULES.md](DOCUMENTATION_ORGANIZATION_RULES.md) - Documentation organization  
+**INDEX.md Requirements**: [INVESTIGATION_PROCEDURE.md](/Users/marco/devel/ChickenWorld/ChickenDocs/INVESTIGATION_PROCEDURE.md#step-45-create-indexmd-for-complex-investigations-mandatory) - Complex investigation INDEX requirements
 
 ### When to Create New vs Use Existing
 
@@ -140,6 +141,7 @@ investigation/
 - Development practices: [development_guidelines.md](/Users/marco/devel/ChickenWorld/ChickenDocs/development_guidelines.md)
 - Documentation process: [PROJECT_DOCUMENTATION_BLUEPRINT.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/Documentation/Process/PROJECT_DOCUMENTATION_BLUEPRINT.md)
 - Organization rules: [DOCUMENTATION_ORGANIZATION_RULES.md](DOCUMENTATION_ORGANIZATION_RULES.md)
+- INDEX.md requirements: [INVESTIGATION_PROCEDURE.md](/Users/marco/devel/ChickenWorld/ChickenDocs/INVESTIGATION_PROCEDURE.md#step-45-create-indexmd-for-complex-investigations-mandatory)
 
 **ChickenSoftwareUpdateLib-specific**:
 - Project structure: ChickenDocs/ChickenSoftwareUpdateLib/ChickenSoftwareUpdateLib_PROJECT_STRUCTURE.md (to be created)
