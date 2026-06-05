@@ -14,10 +14,26 @@ description: Follow testing procedures for ChickenWorld projects
 2. **ALWAYS** enable verbose logging (-vvv) for ESP32 tests
 3. **ALWAYS** use crash detection scripts for ESP32 tests that may crash/reboot
 4. **NEVER** run pio test directly for crash-prone tests
-5. **ALWAYS** save test output to timestamped log file: `timeout 120 pio test -e {env} -vvv 2>&1 | tee /Users/marco/devel/ChickenWorld/{Project}/investigation/logs/{test_name}_{YYYYMMDD_HHMMSS}.log`
+5. **ALWAYS** save test output to timestamped log file: `timeout 120 pio test -e {env} -vvv 2>&1 > /Users/marco/devel/ChickenWorld/{Project}/investigation/logs/{test_name}_{YYYYMMDD_HHMMSS}.log`
 6. **NEVER** re-run tests just to grep output - ALWAYS parse existing log files in investigation/logs/
 7. **NEVER** assume heap objects at same logical location will have same address across test runs - EACH heap allocation can occur at different addresses
 8. **NEVER** debug object lifetime issues by assuming addresses match - use actual address values from logs, never "it should be the same"
+9. **NEVER** use `| tee` for output redirection - ALWAYS use `>` (redirect) only - `tee` keeps stdout/stderr connected to terminal, breaking log methodology
+
+**Output Redirection Rule** (Added 2026-06-02):
+- ❌ **WRONG**: `pio test -e esp32dev -vvv 2>&1 | tee output.log`
+- ✅ **CORRECT**: `pio test -e esp32dev -vvv 2>&1 > output.log`
+- **Why**: `tee` keeps stdout/stderr connected to terminal, causing confusion about where logs are written. Breaks output redirection methodology for investigation.
+- **Reference**: [ESP32_OTA_TEST_PROCEDURE_2026-05-31.md](../../investigation/ESP32_OTA_TEST_PROCEDURE_2026-05-31.md) - "MISTAKE 2: Using | tee instead of >"
+
+**Library Dependencies Rule** (Added 2026-06-04):
+- **Normally DO NOT clean** `.pio/libdeps/` - PlatformIO caches dependencies efficiently
+- **Only clean** if:
+  - We have unexplainable quirky behavior that suggests stale cached state
+  - We modified dependency libraries directly in `.pio/libdeps/`
+  - Tests behave inconsistently across runs with no logical explanation
+- **Clean command** (when truly necessary): `rm -rf .pio/libdeps/`
+- **Why**: Unnecessary cleaning wastes time during normal test iterations and doesn't fix actual bugs
 
 **Workflow**:
 1. Read [ChickenTools/QUICK_REFERENCE.md](../../ChickenTools/QUICK_REFERENCE.md)
