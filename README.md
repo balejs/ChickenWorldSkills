@@ -2,15 +2,18 @@
 
 **Purpose**: Collection of AI agent skills for ChickenWorld development workflows
 
-**Location**: Skills are loaded from `~/.opencode/skills/`
+**Canonical location**: `~/devel/ChickenWorld/ChickenWorldSkills/` - the only git clone  
+**Loaded by**: `~/.config/opencode/skills` and `~/.claude/skills`, both symlinks to the clone
 
-**Repository**: `~/devel/ChickenWorld/ChickenWorldSkills/` (clone of active skills)
+**Do not clone this repository elsewhere.** A second clone drifts silently: each copy accumulates
+commits and uncommitted edits the other never sees, and work can sit untracked in one copy while
+the other is pushed.
 
 ---
 
 ## Overview
 
-This repository contains **21 skills* that enforce ChickenWorld coding standards, testing procedures, and best practices across all projects.
+This repository contains **24 skills** that enforce ChickenWorld coding standards, testing procedures, and best practices across all projects.
 
 Skills follow **Option B** format:
 - 10-15 lines with workflow + links
@@ -31,6 +34,7 @@ Skills follow **Option B** format:
 | [chickenworld-testing](chickenworld-testing/SKILL.md) | Follow testing procedures |
 | [build-and-test-all](build-and-test-all/SKILL.md) | Use ChickenTools automation |
 | [cross-thread-safe-code](cross-thread-safe-code/SKILL.md) | Write cross-thread safe code |
+| [avoid-std-string](avoid-std-string/SKILL.md) | Avoid std::string in embedded code |
 
 ### 🐛 Crash Analysis & Debugging
 
@@ -41,6 +45,7 @@ Skills follow **Option B** format:
 | [callstack-decoding](callstack-decoding/SKILL.md) | Decode ESP32 backtraces |
 | [esp32-heap-debugging](esp32-heap-debugging/SKILL.md) | Debug heap poisoning |
 | [investigation-workflow](investigation-workflow/SKILL.md) | Systematic investigation |
+| [timeout-hang-analysis](timeout-hang-analysis/SKILL.md) | Tell a legitimate timeout from a hang |
 
 ### 🔧 Networking & TLS
 
@@ -153,9 +158,12 @@ Tools used by skills with corresponding skill links:
 
 When creating new skills:
 1. Follow [create-skills](create-skills/SKILL.md) guidelines
-| [modify-skills](modify-skills/SKILL.md) | Modify existing skills |2. Document details in ChickenDocs first
-3. Keep skill to 10-15 lines with references
+2. Document details in ChickenDocs first
+3. Keep the skill thin - workflow plus links, substance stays in ChickenDocs
 4. Ensure proper ChickenTools integration
+5. Revise existing skills under [modify-skills](modify-skills/SKILL.md) and
+   [documentation-maintenance](documentation-maintenance/SKILL.md)
+6. Preserve session findings with [deep-save](deep-save/SKILL.md)
 
 ---
 
@@ -168,6 +176,7 @@ When creating new skills:
 
 ---
 
-**Total Skills**: 20  
-**Last Updated**: 2026-05-24  
-**Location**: `~/.config/opencode/skills/` (active), `~/devel/ChickenWorld/ChickenWorldSkills/` (repository)
+**Total Skills**: 24  
+**Last Updated**: 2026-11-02  
+**Canonical location**: `~/devel/ChickenWorld/ChickenWorldSkills/` (the only git clone)  
+**Consumers**: `~/.config/opencode/skills` and `~/.claude/skills` are symlinks to the clone
