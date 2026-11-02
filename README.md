@@ -57,6 +57,7 @@ Skills follow **Option B** format:
 | [verify-api-documentation](verify-api-documentation/SKILL.md) | Verify API documentation |
 | [document-project-docs](document-project-docs/SKILL.md) | Document project-specific details |
 | [deep-save](deep-save/SKILL.md) | Preserve session context, evidence and lessons before they are lost |
+| [documentation-maintenance](documentation-maintenance/SKILL.md) | Write and revise docs under consistency, conciseness, clarity |
 
 ### 🏗️ Project Management
 
