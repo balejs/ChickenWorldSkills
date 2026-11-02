@@ -15,6 +15,7 @@ description: Follow proper Git workflow for ChickenWorld projects
 3. **ALWAYS** commit library changes to respective library repos, not main project
 4. **ALWAYS** separate code and documentation changes into distinct commits
 5. **ALWAYS** create investigation branches locally only (don't push unless collaborating)
+6. **NEVER** rewrite branch history (rebase/squash/reword/amend/force-push) without a backup ref first
 
 ---
 
@@ -326,31 +327,46 @@ git add include/LoopScheduler.h docs/
 git commit -m "docs: Update API documentation"
 ```
 
-### Safety Branch Workflow
+### Safety Branch Workflow (Any History Rewrite)
+
+**Applies to**: `rebase -i`, squashing, rewording, reordering, amending more than one
+commit, `reset --soft`/`--hard`, and any force-push. Each of these can silently discard
+work; a backup ref is the only reliable recovery point.
 
 ```bash
-# 1. Save current state
-git checkout -b temp-safety-branch
-git commit -am "temp: save before reorganization"
+# 1. Pin the current tip WITHOUT checking it out
+#    (a branch you are standing on cannot be deleted at step 6)
+git branch backup-verification-<YYYYMMDD>
+git tag backup-<YYYYMMDD>-<HHMMSS>
 
-# 2. Return to working branch
-git checkout original-branch
-git reset --soft HEAD~1
+# 2. Record the pre-rewrite state outside the repo, in case the repo is re-cloned
+git log --oneline -10 > /tmp/backup-log-<YYYYMMDD>.txt
 
-# 3. Split and commit separately
-git add <code-files>
-git commit -m "fix: <code changes>"
+# 3. If the tree is dirty, park the work-in-progress on its own branch first
+git checkout -b temp-safety-branch && git add -A && git commit -m "temp: save before reorganization"
+git checkout <working-branch>
 
-git add <doc-files>
-git commit -m "docs: <doc changes>"
+# 4. Rewrite
+git reset --soft HEAD~2 && git commit -m "<combined message>"   # or: git rebase -i <base>
 
-# 4. Verify against safety branch
-git diff temp-safety-branch
-# Should show no output
+# 5. Verify - content must be identical, only the commit shape may differ
+git diff backup-verification-<YYYYMMDD>                    # expect NO output
+git log --oneline backup-verification-<YYYYMMDD>..HEAD     # the new commits
+pio run -e esp32dev && pio test -e native                # if code was touched
 
-# 5. Clean up
-git branch -D temp-safety-branch
+# 6. Keep the backup until the rewrite is pushed and confirmed
+git push --force-with-lease origin <working-branch>
+git branch -D backup-verification-<YYYYMMDD>
+git tag -d backup-<YYYYMMDD>-<HHMMSS>
 ```
+
+**Key principles**:
+- An empty `git diff backup...` is the proof nothing was lost. A commit message that
+  *describes* a change is not evidence that the change is intact.
+- `git add <file>` stages **every** pre-existing change to that file, including
+  deletions made earlier in the session. Check `git diff --cached --stat` first.
+- Use `--force-with-lease`, never bare `--force` - it aborts if someone else pushed.
+- Delete the backup last, not first.
 
 ---
 
