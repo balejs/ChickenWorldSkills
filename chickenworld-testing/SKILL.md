@@ -19,6 +19,9 @@ description: Follow testing procedures for ChickenWorld projects
 7. **NEVER** assume heap objects at same logical location will have same address across test runs - EACH heap allocation can occur at different addresses
 8. **NEVER** debug object lifetime issues by assuming addresses match - use actual address values from logs, never "it should be the same"
 9. **NEVER** use `| tee` for output redirection - ALWAYS use `>` (redirect) only - `tee` keeps stdout/stderr connected to terminal, breaking log methodology
+10. **NEVER** run `pio test` / `platformio test` in parallel on the same project - concurrent builds corrupt log captures and produce incomplete output
+11. **ALWAYS** kill the test server before each test - `pkill -f test_server.py; sleep 3; ps aux | grep test_server.py | grep -v grep || echo "clean"` - prevents `[Errno 48] Address already in use`
+12. **NEVER** report a conclusion without the log lines that support it - quote timestamps and file:line, never assert what the logs do not show
 
 **Output Redirection Rule** (Added 2026-06-02):
 - ❌ **WRONG**: `pio test -e esp32dev -vvv 2>&1 | tee output.log`

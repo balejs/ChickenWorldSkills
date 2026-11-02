@@ -19,7 +19,7 @@ description: Follow systematic investigation procedures for debugging
 ```bash
 # Phase 1: Reproduce
 # Get callstack: lldb -o run -o "thread backtrace all" -o quit ./program
-# Document: Save to investigation/INVESTIGATION_YYYY-MM-DD.md
+# Document: Save to investigation/<TOPIC>_<YYYY-MM-DD>.md
 
 # Phase 2: Research
 # Search ChickenDocs for similar issues
@@ -79,7 +79,7 @@ After fix is verified (20 iterations, 0 crashes):
    - Verification checklist
 
 3. **Document Final Status**:
-   - Final investigation document: `ChickenDocs/[Project]/INVESTIGATION_COMPLETE_YYYY-MM-DD.md`
+   - Final investigation document: `ChickenDocs/[Project]/INVESTIGATION_<TOPIC>_<YYYY-MM-DD>.md`
    - List of commits merged to 1.1.0
    - Summary of what was investigated
 

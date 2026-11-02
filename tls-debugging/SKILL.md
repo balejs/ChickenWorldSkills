@@ -28,7 +28,7 @@ auto exchange = MakeHttpExchange(scheduler, "192.168.1.100", 443,
 
 ```bash
 # Run test with TLS debugging
-pio test -e native -vvv 2>&1 | tee tls_debug.log
+pio test -e native -vvv 2>&1 > investigation/logs/tls_debug_$(date +%Y%m%d_%H%M%S).log
 ```
 
 **Key references**:
