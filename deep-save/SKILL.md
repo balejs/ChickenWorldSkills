@@ -23,17 +23,19 @@ hypothesis.
    existing doc, or mislead a future agent if absent — not trivia.
 2. **Ledger** — record each as `claim | evidence | command | status`, scope stated at
    first use, status one of `measured` / `inferred` / `hypothesis` / `ruled-out`.
-3. **Route at the narrowest adequate scope** — four rungs:
-   - this investigation → the relevant section of `investigation/*.md`
-   - this library only, by its own code → `ChickenDocs/<Project>/`
-   - **a platform constraint → general docs, platform-scoped** (`Common/ESP32_PLATFORM_
-     DIFFERENCES.md` etc.). Platform ≠ project: many libraries in separate projects share
-     one platform, so burying it in one project hides it from the rest — but scope it
-     explicitly so other platforms can dismiss it at a glance
-   - confirmed across 2+ libraries on any platform → `ChickenDocs/Common/`, citing evidence
+3. **Route at the narrowest adequate rung:**
 
-   **Not relevant at large scale → stays local; never promote to `Common/` as a general
-   rule.** Not provably library-local → treat as platform-general.
+   | Scope of finding | Destination |
+   |---|---|
+   | this inquiry | relevant section of `investigation/*.md` |
+   | this library, by its own code | `ChickenDocs/<Project>/` |
+   | **a platform constraint** | **general docs, platform-scoped** — `Common/ESP32_PLATFORM_DIFFERENCES.md` etc. |
+   | confirmed across 2+ libraries | `ChickenDocs/Common/`, citing evidence |
+
+   Platform ≠ project: many libraries in separate projects share one platform, so burying
+   an ESP32 finding in one project hides it from the rest — but name the platform so
+   other targets can dismiss it at a glance. **Not relevant at large scale → stays local.
+   Not provably library-local → treat as platform-general.**
 4. **Find a home before creating one** — search the corpus for the section that owns the
    subject and **extend it**; that is the default outcome. Create a new
    section/document/topic area only if nothing adequate exists, following
