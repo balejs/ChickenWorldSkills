@@ -23,13 +23,17 @@ hypothesis.
    existing doc, or mislead a future agent if absent — not trivia.
 2. **Ledger** — record each as `claim | evidence | command | status`, scope stated at
    first use, status one of `measured` / `inferred` / `hypothesis` / `ruled-out`.
-3. **Route at the narrowest adequate scope** — this investigation → the relevant section
-   of `investigation/*.md`; a finding about this library → `ChickenDocs/<Project>/`;
-   only patterns confirmed across two or more libraries → `ChickenDocs/Common/`, citing
-   the evidence. **A notion that is not relevant at large scale stays in the
-   library's/investigation's own docs — never promote it to `Common/`.** Test first:
-   *would this still be true and still matter in a project I am not in?* If uncertain,
-   keep it local.
+3. **Route at the narrowest adequate scope** — four rungs:
+   - this investigation → the relevant section of `investigation/*.md`
+   - this library only, by its own code → `ChickenDocs/<Project>/`
+   - **a platform constraint → general docs, platform-scoped** (`Common/ESP32_PLATFORM_
+     DIFFERENCES.md` etc.). Platform ≠ project: many libraries in separate projects share
+     one platform, so burying it in one project hides it from the rest — but scope it
+     explicitly so other platforms can dismiss it at a glance
+   - confirmed across 2+ libraries on any platform → `ChickenDocs/Common/`, citing evidence
+
+   **Not relevant at large scale → stays local; never promote to `Common/` as a general
+   rule.** Not provably library-local → treat as platform-general.
 4. **Find a home before creating one** — search the corpus for the section that owns the
    subject and **extend it**; that is the default outcome. Create a new
    section/document/topic area only if nothing adequate exists, following
