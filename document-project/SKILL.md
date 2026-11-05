@@ -1,43 +1,78 @@
 ---
 name: document-project
-description: Document new ChickenWorld projects following established patterns
+description: Create and document a ChickenWorld project - scaffolding, header API docs and verification
 ---
 
 # Skill: Document Project
 
-**Purpose**: Document new ChickenWorld projects following established standards
+**Purpose**: Take a project from empty directory to documented and verified
 
-**Use when**: Starting documentation for a new or existing ChickenWorld project
+**Use when**: Starting a new library, or documenting/auditing an existing one
 
-**CRITICAL RULES**:
-1. **ALWAYS** follow PROJECT_DOCUMENTATION_BLUEPRINT.md workflow
-2. **ALWAYS** create PROJECT_STRUCTURE.md for multi-repo projects
-3. **ALWAYS** verify ALL headers are documented (public and internal)
-4. Move architecture details to dedicated docs, not headers
+**Last Updated**: 2026-11-05
 
-**Workflow**:
-```bash
-# Phase 1: Discovery
-find include src -name "*.h" | xargs grep -l "@file" > headers.txt
+Merges `document-project`, `verify-api-documentation` and `new-chickenworld-project` -
+verification is a phase of documenting, and scaffolding decides what gets documented.
 
-# Phase 2: Create tracking document
-ChickenDocs/[ProjectName]/API_DOCUMENTATION_VERIFICATION.md
+---
 
-# Phase 3: Follow 12-phase process from blueprints
-# Reference: Common/Documentation/Process/PROJECT_DOCUMENTATION_BLUEPRINT.md
+## CRITICAL RULES
+
+1. **ALWAYS** follow `PROJECT_DOCUMENTATION_BLUEPRINT.md`; it defines the phases, this does not
+2. **ALWAYS** create `<Project>_PROJECT_STRUCTURE.md` for multi-repo projects
+3. **ALWAYS** document **every** header, public in `include/` and internal in `src/`
+4. **ALWAYS** verify documentation against the implementation - a doc that describes a
+   signature the code does not have is a defect, not a draft
+5. **NEVER** put architecture prose in headers - `@file` blocks stay ≤15 lines with `@see`
+   pointers to ChickenDocs
+6. **ALWAYS** name investigation documents `<TOPIC>_<YYYY-MM-DD>.md` - topic first, matching
+   the ~160 existing files; date-first names are not used here
+
+## Scaffolding
+
+```
+NewLibrary/
+├── include/NewLibrary.h     # public API, slim @file blocks
+├── src/NewLibrary.cpp
+├── test/test.cpp            # plus test_server.py if the tests need one
+├── platformio.ini           # native + esp32dev environments
+├── library.json             # metadata and dependencies
+└── docs -> ChickenDocs/NewLibrary/
 ```
 
-**Document locations**:
-- **Project structure**: `ChickenDocs/[ProjectName]/[ProjectName]_PROJECT_STRUCTURE.md`
-- **API documentation**: In header files (slim @file blocks ≤15 lines)
-- **Architecture**: `ChickenDocs/[ProjectName]/Architecture/*.md`
-- **Investigations**: `ChickenDocs/[ProjectName]/INVESTIGATION_YYYY-MM-DD.md`
+## Workflow
+
+1. **Scaffold** the layout above; add `platformio.ini` with both environments and
+   `library.json` with dependencies
+2. **Inventory** - `find include src -name "*.h"` and record every undocumented header in
+   `ChickenDocs/<Project>/API_DOCUMENTATION_VERIFICATION.md`
+3. **Document** - `@file` ≤15 lines, `@param` and `@return` on every public function
+4. **Verify against code** - cross-check each claim against the `.cpp`; fix discrepancies in
+   the doc, and confirm inline examples actually compile
+5. **Structure** - architecture to `ChickenDocs/<Project>/Architecture/*.md`, findings to
+   `ChickenDocs/<Project>/<TOPIC>_<YYYY-MM-DD>.md`
+6. **Wire in** - link from `AGENTS.md` and `ChickenDocs/README.md` so it is discoverable
+
+## Verification checklist
+
+- [ ] Every header in `include/` and `src/` has an `@file` block ≤15 lines
+- [ ] Every public class and function has `@param` / `@return`
+- [ ] Inline examples compile and were actually run
+- [ ] Documentation matches the implementation, not the intention
+- [ ] Architecture detail lives in ChickenDocs, not in headers
+- [ ] New docs are linked from an index
+
+---
 
 **Key references**:
-- [Common/Documentation/Process/PROJECT_DOCUMENTATION_BLUEPRINT.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/Documentation/Process/PROJECT_DOCUMENTATION_BLUEPRINT.md) - Complete blueprint
-- [Common/Documentation/Process/PROJECT_DOCUMENTATION_PROCESS.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/Documentation/Process/PROJECT_DOCUMENTATION_PROCESS.md) - 12-phase process
-- [ChickenNetworkingLib/ChickenNetworkingLib_PROJECT_STRUCTURE.md](/Users/marco/devel/ChickenWorld/ChickenDocs/ChickenNetworkingLib/ChickenNetworkingLib_PROJECT_STRUCTURE.md) - Project structure template
-- [ChickenFundamentalsLib/REFACTORING_COMPLETE_2025-11-09.md](/Users/marco/devel/ChickenWorld/ChickenDocs/ChickenFundamentalsLib/REFACTORING_COMPLETE_2025-11-09.md) - Documentation refactoring example
+- [PROJECT_DOCUMENTATION_BLUEPRINT.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/Documentation/Process/PROJECT_DOCUMENTATION_BLUEPRINT.md) - The blueprint
+- [PROJECT_DOCUMENTATION_PROCESS.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/Documentation/Process/PROJECT_DOCUMENTATION_PROCESS.md) - Phase detail
+- [API_DOCUMENTATION_GUIDELINES.md](/Users/marco/devel/ChickenWorld/ChickenDocs/API_DOCUMENTATION_GUIDELINES.md) - Doxygen standards
+- [INLINE_EXAMPLE_GUIDELINES.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/Documentation/Guidelines/INLINE_EXAMPLE_GUIDELINES.md) - Example code
+- [DOCUMENTATION_VERIFICATION_QUALITY_PROCESS.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/Documentation/Process/DOCUMENTATION_VERIFICATION_QUALITY_PROCESS.md) - Verification
+- [ChickenNetworkingLib_PROJECT_STRUCTURE.md](/Users/marco/devel/ChickenWorld/ChickenDocs/ChickenNetworkingLib/ChickenNetworkingLib_PROJECT_STRUCTURE.md) - Structure template
 
 **Skills this relies on**:
-- [organize-agents](../organize-agents/SKILL.md) - Documentation organization
+- [document-project-docs](../document-project-docs/SKILL.md) - Where project content goes
+- [organize-agents](../organize-agents/SKILL.md) - AGENTS.md organisation
+- [documentation-maintenance](../documentation-maintenance/SKILL.md) - The three principles

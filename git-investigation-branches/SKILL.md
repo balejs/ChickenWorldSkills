@@ -1,204 +1,27 @@
 ---
-name: chickenworld-git-workflow
-description: Follow proper Git workflow for ChickenWorld projects
+name: git-investigation-branches
+description: Branch policy for ChickenWorld investigations - naming, libdeps edits, history-rewrite safety, squash and merge
 ---
 
-# Skill: ChickenWorld Git Workflow
+# Skill: Git Investigation Branches
 
-**Purpose**: Standard Git procedures for ChickenWorld projects, including repository setup and commit guidelines
+**Purpose**: Keep investigation work isolated from release history, and never lose work to
+a history rewrite
 
-**Use when**: Creating new ChickenWorld repositories, managing git workflows, or committing code changes
+**Use when**: Starting an investigation, editing a library under `.pio/libdeps/`,
+rebasing/squashing/amending, or finalising and merging findings
+
+**Last Updated**: 2026-11-05
+
+Split from `chickenworld-git-workflow`.
 
 **CRITICAL RULES**:
-1. **NEVER** reference AI tools in commit messages - write as human developer
-2. **ALWAYS** use GitHub host aliases (balejs.github.com) in remote URLs
-3. **ALWAYS** commit library changes to respective library repos, not main project
-4. **ALWAYS** separate code and documentation changes into distinct commits
-5. **ALWAYS** create investigation branches locally only (don't push unless collaborating)
-6. **NEVER** rewrite branch history (rebase/squash/reword/amend/force-push) without a backup ref first
-
----
-
-## Git Host Configuration
-
-### ~/.ssh/config Setup (Required for All ChickenWorld Projects)
-
-**For balejs GitHub account**:
-```ssh-config
-Host balejs.github.com
-    Hostname github.com
-    PreferredAuthentications publickey
-    IdentityFile ~/.ssh/id_rsa_marcoballesio_gmail
-```
-
-**For quantumboar GitHub account** (rare exceptions):
-```ssh-config
-Host quantumboar.github.com
-    Hostname github.com
-    PreferredAuthentications publickey
-    IdentityFile ~/.ssh/id_rsa_quantumboar
-```
-
-**Testing SSH configuration**:
-```bash
-ssh -T git@balejs.github.com
-# Expected: "Hi marcoballesio_gmail! You've successfully authenticated..."
-```
-
----
-
-## New Repository Creation
-
-### ChickenWorld Project (Standard Pattern)
-
-**1. Create SSH config** (if not exists):
-```bash
-cat >> ~/.ssh/config << EOF
-Host balejs.github.com
-    Hostname github.com
-    PreferredAuthentications publickey
-    IdentityFile ~/.ssh/id_rsa_marcoballesio_gmail
-EOF
-chmod 600 ~/.ssh/config
-```
-
-**2. Create repo on GitHub** (manual step at github.com):
-- Go to https://github.com/balejs
-- Click "New repository"
-- Repository name: `ChickenXyzLib` (follow ChickenWorld naming)
-- Visibility: Public
-- Initialize: Do NOT initialize (clean start)
-
-**3. Initialize local repo**:
-```bash
-cd /path/to/ChickenXyzLib
-git init
-git remote add origin git@balejs.github.com:balejs/ChickenXyzLib.git
-git checkout -b main
-```
-
-**4. Configure branch settings**:
-```bash
-# Set main branch as default
-git config branch.main.remote origin
-git config branch.main.merge refs/heads/main
-
-# Add version branches if needed
-git config branch.1.1.0.remote origin
-git config branch.1.1.0.merge refs/heads/1.1.0
-```
-
-**5. First commit and push**:
-```bash
-git add README.md include/ src/ test/
-git commit -m "feat: Initial ChickenXyzLib implementation
-
-Core structure with API headers and platform test support"
-
-git push -u origin main
-```
-
-### Verification
-
-```bash
-git remote -v
-# Should show: origin	git@balejs.github.com:balejs/ChickenXyzLib.git (fetch/push)
-
-cat .git/config
-# Should show remote origin with balejs.github.com host alias
-```
-
----
-
-## Commit Message Format
-
-### Structure
-```
-<component>: <brief summary>
-
-<optional detailed description>
-
-<optional footer with issue references>
-```
-
-### Component Names
-Use the **object or component being modified** as the preamble:
-- `ReferenceCounter:` - Changes to reference counting
-- `LoopScheduler:` - Changes to scheduler
-- `HttpExchange:` - Changes to HTTP exchange
-- `Buffer:` - Changes to buffer implementation
-- `Generic:` - Multiple components or general changes
-
-### Modular Commit Principle
-**Prioritize atomic, focused commits**:
-1. **Break down large changes** - If a change touches multiple independent areas, split into separate commits
-2. **Functionally grouped changes** - Changes that must stay together (e.g., API change + usage updates) can be in one commit
-3. **Never mix source with non-source** - Code changes must be isolated from docs/config/documentation changes
-
-### Separation Rules
-
-**Must be separate commits**:
-- **Source code** (`src/`, `include/`) → One commit
-- **Documentation** (`ChickenDocs/`, `docs/`) → Separate commit
-- **Configuration** (`platformio.ini`, `.gitignore`, etc.) → Separate commit
-- **AGENTS.md or README.md** → Separate commit
-
-**Good practice** (can be together):
-```
-Commit 1: ReferenceCounter: Add mutex protection
-         - src/ReferenceCounter.cpp: Add mutex lock
-         - include/ReferenceCounter.h: Add lock/unlock methods
-
-Commit 2: docs: Document ReferenceCounter thread safety
-         - ChickenDocs/Common/CHICKENWORLD_LIFECYCLE_MANAGEMENT.md
-
-Commit 3: platformio.ini: Enable lifecycle checks
-         - platformio.ini: Add build_flag
-```
-
-**Bad practice** (should be split):
-```
-❌ ONE COMMIT:
-   - src/ReferenceCounter.cpp: Add mutex lock
-   - include/ReferenceCounter.h: Add methods
-   - ChickenDocs/Common/CHICKENWORLD_LIFECYCLE_MANAGEMENT.md: Document thread safety
-   - platformio.ini: Add build_flag
-```
-
-### Examples
-
-**Good commits** (modular, focused):
-```
-ReferenceCounter: Add mutex protection to helper functions
-
-The addStrongRef and releaseRef functions were missing mutex
-protection, leading to race conditions in multi-threaded scenarios.
-Added Lock/NoLock versions to allow internal callers to skip locking.
-
-Closes #123
-```
-
-```
-LoopScheduler: Remove Weakling dependency
-
-Eliminated Weakling reference from LoopScheduler to reduce
-stack usage and improve performance. Weakling usage moved
-to private implementations only.
-```
-
-```
-ChickenHttpLib: Update to use new NetworkExchange API
-
-Updated HttpClient to use NetworkExchange instead of SQuery.
-All call sites migrated to new factory methods.
-```
-
-**Bad commits** (avoid these):
-```
-update ReferenceCounter with mutex                # Too vague
-referencecounter: add mutex and update docs and fix config  # Mixed concerns
-AI suggested this fix                             # References AI
-```
+1. **ALWAYS** create investigation branches locally; push only when collaborating
+2. **ALWAYS** edit a library under `.pio/libdeps/` on a dedicated testing branch, never on
+   a release branch
+3. **NEVER** rewrite branch history without a backup ref first
+4. **NEVER** merge an investigation branch into `1.1.0` - cherry-pick production changes only
+5. **ALWAYS** use `--force-with-lease`, never bare `--force`
 
 ---
 
@@ -380,7 +203,7 @@ git tag -d backup-<YYYYMMDD>-<HHMMSS>
 ---
 
 **Skills this relies on**:
-- [chickenworld-coding](../chickenworld-coding/SKILL.md) - General coding standards
+- [chickenworld-coding](../coding/SKILL.md) - General coding standards
 - [document-project](../document-project/SKILL.md) - Project documentation
 
 ---
@@ -407,7 +230,7 @@ git merge investigation/branch-name  # This pollutes 1.1.0 with investigation ar
 
 **Rationale**: Investigation branches contain temporary findings, logs, and test code that should NEVER be in production history. Only cherry-pick commits that contain production code changes (source/config, not docs/test).
 
-**See complete procedure**: [ChickenDocs/INVESTIGATION_PROCEDURE.md](../../../ChickenWorld/ChickenDocs/INVESTIGATION_PROCEDURE.md#step-9-squash-and-merge-source-code-changes-to-main-branch)
+**See complete procedure**: [ChickenDocs/INVESTIGATION_PROCEDURE.md](/Users/marco/devel/ChickenWorld/ChickenDocs/INVESTIGATION_PROCEDURE.md#step-9-squash-and-merge-source-code-changes-to-main-branch)
 
 ### Step 1: Create Safety Branch
 Before starting, save current state:
@@ -440,7 +263,7 @@ For each commit, determine:
 
 ### Step 3: Pre-Merge Verification (CRITICAL)
 
-**See complete procedure**: [ChickenDocs/INVESTIGATION_PROCEDURE.md](../../../ChickenWorld/ChickenDocs/INVESTIGATION_PROCEDURE.md#pre-merge-verification)
+**See complete procedure**: [ChickenDocs/INVESTIGATION_PROCEDURE.md](/Users/marco/devel/ChickenWorld/ChickenDocs/INVESTIGATION_PROCEDURE.md#pre-merge-verification)
 
 **Quick checklist**:
 - Search for `TODO/FIXME/HACK/TEMP` in source files
@@ -449,7 +272,7 @@ For each commit, determine:
 
 ### Steps 4-8: Process, Verify, and Clean Up
 
-**See complete procedures**: [ChickenDocs/INVESTIGATION_PROCEDURE.md](../../../ChickenWorld/ChickenDocs/INVESTIGATION_PROCEDURE.md#step-4-process-commits-systematically)
+**See complete procedures**: [ChickenDocs/INVESTIGATION_PROCEDURE.md](/Users/marco/devel/ChickenWorld/ChickenDocs/INVESTIGATION_PROCEDURE.md#step-4-process-commits-systematically)
 
 **Quick reference**:
 - **Step 4**: Cherry-pick commits systematically
@@ -470,3 +293,15 @@ This ensures:
 - Easy to revert code changes without losing documentation
 - Investment docs don't clutter production branch history
 
+
+---
+
+**Key references**:
+- [INVESTIGATION_PROCEDURE.md](/Users/marco/devel/ChickenWorld/ChickenDocs/INVESTIGATION_PROCEDURE.md) - Full investigation workflow
+- [DEPENDENCY_MODIFICATION_WORKFLOW.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/DEPENDENCY_MODIFICATION_WORKFLOW.md) - Modifying vendored dependencies
+- [GIT_COMMIT_GUIDELINES.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/GIT_COMMIT_GUIDELINES.md) - Commit format
+
+**Skills this relies on**:
+- [git-remote-setup](../git-remote-setup/SKILL.md) - Remotes and host aliases
+- [git-commit-conventions](../git-commit-conventions/SKILL.md) - Message format
+- [investigation-workflow](../investigation-workflow/SKILL.md) - The investigation itself

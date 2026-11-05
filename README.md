@@ -13,7 +13,7 @@ the other is pushed.
 
 ## Overview
 
-This repository contains **24 skills** that enforce ChickenWorld coding standards, testing procedures, and best practices across all projects.
+This repository contains **18 skills** that enforce ChickenWorld coding standards, testing procedures, and best practices across all projects.
 
 Skills follow **Option B** format:
 - 10-15 lines with workflow + links
@@ -26,64 +26,48 @@ Skills follow **Option B** format:
 
 ## Skills Catalog
 
-### 🎯 Universal Development Skills
+### 🎯 Universal Development
 
 | Skill | Purpose |
-|-------|---------|
-| [chickenworld-coding](chickenworld-coding/SKILL.md) | Enforce ChickenWorld coding standards |
-| [chickenworld-testing](chickenworld-testing/SKILL.md) | Follow testing procedures |
-| [build-and-test-all](build-and-test-all/SKILL.md) | Use ChickenTools automation |
-| [cross-thread-safe-code](cross-thread-safe-code/SKILL.md) | Write cross-thread safe code |
-| [avoid-std-string](avoid-std-string/SKILL.md) | Avoid std::string in embedded code |
-
-### 🐛 Crash Analysis & Debugging
+|---|---|
+| [coding](coding/SKILL.md) | ChickenWorld C++ coding standards - string types, logging macros, lifecycle ownership, schedulers |
+| [cross-thread-safe-code](cross-thread-safe-code/SKILL.md) | Write cross-thread safe code for ESP32 and native platforms |
+| [chickenworld-testing](chickenworld-testing/SKILL.md) | Follow testing procedures for ChickenWorld projects |
+| [build-and-test-all](build-and-test-all/SKILL.md) | Use ChickenTools build_and_test_all.py for comprehensive validation |
+### 🐛 Crash, Hang and Debugging
 
 | Skill | Purpose |
-|-------|---------|
-| [esp32-crash-analysis](esp32-crash-analysis/SKILL.md) | Analyze ESP32 crashes |
-| [native-crash-analysis](native-crash-analysis/SKILL.md) | Analyze native crashes |
-| [callstack-decoding](callstack-decoding/SKILL.md) | Decode ESP32 backtraces |
-| [esp32-heap-debugging](esp32-heap-debugging/SKILL.md) | Debug heap poisoning |
-| [investigation-workflow](investigation-workflow/SKILL.md) | Systematic investigation |
-| [timeout-hang-analysis](timeout-hang-analysis/SKILL.md) | Tell a legitimate timeout from a hang |
-
-### 🔧 Networking & TLS
+|---|---|
+| [crash-analysis](crash-analysis/SKILL.md) | Analyse ESP32 and native crashes - backtrace symbolication, heap corruption, watchdog resets |
+| [network-debugging](network-debugging/SKILL.md) | Debug ChickenWorld networking and TLS issues - URI paths, state listeners, SNI, certificate failures |
+| [timeout-hang-analysis](timeout-hang-analysis/SKILL.md) | Distinguish a legitimate timeout from a hang by testing whether the system was still making progress when the timer fired |
+| [investigation-workflow](investigation-workflow/SKILL.md) | Follow systematic investigation procedures for debugging |
+### 🔀 Git
 
 | Skill | Purpose |
-|-------|---------|
-| [tls-debugging](tls-debugging/SKILL.md) | Debug TLS/HTTPS issues |
-| [networking-debugging](networking-debugging/SKILL.md) | Debug networking issues |
-
+|---|---|
+| [git-remote-setup](git-remote-setup/SKILL.md) | Configure GitHub host aliases and create new ChickenWorld repositories |
+| [git-commit-conventions](git-commit-conventions/SKILL.md) | Write ChickenWorld commit messages - component prefixes, atomic commits, no AI references |
+| [git-investigation-branches](git-investigation-branches/SKILL.md) | Branch policy for ChickenWorld investigations - naming, libdeps edits, history-rewrite safety, squash and merge |
 ### 📝 Documentation
 
 | Skill | Purpose |
-|-------|---------|
-| [document-project](document-project/SKILL.md) | Document new projects |
-| [verify-api-documentation](verify-api-documentation/SKILL.md) | Verify API documentation |
-| [document-project-docs](document-project-docs/SKILL.md) | Document project-specific details |
-| [deep-save](deep-save/SKILL.md) | Preserve session context, evidence and lessons before they are lost |
-| [documentation-maintenance](documentation-maintenance/SKILL.md) | Write and revise docs under consistency, conciseness, clarity |
-
-### 🏗️ Project Management
-
-| Skill | Purpose |
-|-------|---------|
-| [new-chickenworld-project](new-chickenworld-project/SKILL.md) | Create new projects |
-| [dependency-management](dependency-management/SKILL.md) | Manage dependencies |
-
-### 🗂️ Organization
+|---|---|
+| [documentation-maintenance](documentation-maintenance/SKILL.md) | Write and revise ChickenWorld documentation under the three quality principles - consistency, conciseness, clarity |
+| [document-project](document-project/SKILL.md) | Create and document a ChickenWorld project - scaffolding, header API docs and verification |
+| [document-project-docs](document-project-docs/SKILL.md) | Document project-specific details in ChickenDocs |
+| [organize-agents](organize-agents/SKILL.md) | Organize AGENTS.md files in ChickenWorld projects |
+| [deep-save](deep-save/SKILL.md) | Preserve session context, evidence and lessons before they are lost, routing each to its correct home |
+### 🏗️ Project and Dependencies
 
 | Skill | Purpose |
-|-------|---------|
-| [organize-agents](organize-agents/SKILL.md) | Organize AGENTS.md content |
-| [create-skills](create-skills/SKILL.md) | Create new skills |
-| [modify-skills](modify-skills/SKILL.md) | Modify existing skills |
-### 🗄️ Git & Configuration
+|---|---|
+| [dependency-management](dependency-management/SKILL.md) | Manage PlatformIO dependencies across ChickenWorld repos - keep .pio/libdeps in sync without wiping the cache |
+### 🗂️ Skill Maintenance
 
 | Skill | Purpose |
-|-------|---------|
-| [chickenworld-git-workflow](chickenworld-git-workflow/SKILL.md) | ChickenWorld Git procedures |
-
+|---|---|
+| [skill-maintenance](skill-maintenance/SKILL.md) | Create and revise ChickenWorld skills - location, format, path conventions and quality bar |
 ---
 
 ## Path Convention
@@ -120,9 +104,9 @@ Tools used by skills with corresponding skill links:
 | Tool | Skill Integration |
 |------|-------------------|
 | [build_and_test_all.py](https://github.com/balejs/ChickenTools/blob/main/bin/build_and_test_all.py) | [build-and-test-all](build-and-test-all/SKILL.md), [chickenworld-testing](chickenworld-testing/SKILL.md) |
-| [decode_callstack.py](https://github.com/balejs/ChickenTools/blob/main/bin/decode_callstack.py) | [callstack-decoding](callstack-decoding/SKILL.md), [esp32-crash-analysis](esp32-crash-analysis/SKILL.md) |
-| [test_esp32_crash_repeat.py](https://github.com/balejs/ChickenTools/blob/main/bin/test_esp32_crash_repeat.py) | [esp32-crash-analysis](esp32-crash-analysis/SKILL.md), [esp32-heap-debugging](esp32-heap-debugging/SKILL.md) |
-| [parse_watchdog_crash_log.py](https://github.com/balejs/ChickenTools/blob/main/bin/parse_watchdog_crash_log.py) | [esp32-heap-debugging](esp32-heap-debugging/SKILL.md) |
+| [decode_callstack.py](https://github.com/balejs/ChickenTools/blob/main/bin/decode_callstack.py) | [crash-analysis](crash-analysis/SKILL.md) |
+| [test_esp32_crash_repeat.py](https://github.com/balejs/ChickenTools/blob/main/bin/test_esp32_crash_repeat.py) | [crash-analysis](crash-analysis/SKILL.md) |
+| [parse_watchdog_crash_log.py](https://github.com/balejs/ChickenTools/blob/main/bin/parse_watchdog_crash_log.py) | [crash-analysis](crash-analysis/SKILL.md) |
 
 ---
 
@@ -130,21 +114,21 @@ Tools used by skills with corresponding skill links:
 
 ### Starting a New Project
 
-1. Run [new-chickenworld-project](new-chickenworld-project/SKILL.md)
-2. Follow with [document-project](document-project/SKILL.md)
-3. Verify with [verify-api-documentation](verify-api-documentation/SKILL.md)
+1. Follow [document-project](document-project/SKILL.md) - scaffolding, API docs, verification
+2. Organise with [organize-agents](organize-agents/SKILL.md)
+3. Set up remotes with [git-remote-setup](git-remote-setup/SKILL.md)
 
 ### Writing Code
 
-1. Follow [chickenworld-coding](chickenworld-coding/SKILL.md)
+1. Follow [coding](coding/SKILL.md)
 2. If cross-thread: use [cross-thread-safe-code](cross-thread-safe-code/SKILL.md)
 3. Always test with [chickenworld-testing](chickenworld-testing/SKILL.md)
 
 ### Debugging Issues
 
-1. **Native crash**: [native-crash-analysis](native-crash-analysis/SKILL.md)
-2. **ESP32 crash**: [esp32-crash-analysis](esp32-crash-analysis/SKILL.md)
-3. **Heap issues**: [esp32-heap-debugging](esp32-heap-debugging/SKILL.md)
+1. **Any crash**: [crash-analysis](crash-analysis/SKILL.md) - ESP32, native, callstacks, heap
+2. **Stalled, not crashed**: [timeout-hang-analysis](timeout-hang-analysis/SKILL.md)
+3. **Network / TLS**: [network-debugging](network-debugging/SKILL.md)
 4. **Follow workflow**: [investigation-workflow](investigation-workflow/SKILL.md)
 
 ### Building & Testing
@@ -157,12 +141,11 @@ Tools used by skills with corresponding skill links:
 ## Skill Creation
 
 When creating new skills:
-1. Follow [create-skills](create-skills/SKILL.md) guidelines
+1. Follow [skill-maintenance](skill-maintenance/SKILL.md)
 2. Document details in ChickenDocs first
 3. Keep the skill thin - workflow plus links, substance stays in ChickenDocs
 4. Ensure proper ChickenTools integration
-5. Revise existing skills under [modify-skills](modify-skills/SKILL.md) and
-   [documentation-maintenance](documentation-maintenance/SKILL.md)
+5. Revise under [documentation-maintenance](documentation-maintenance/SKILL.md)
 6. Preserve session findings with [deep-save](deep-save/SKILL.md)
 
 ---
@@ -176,7 +159,7 @@ When creating new skills:
 
 ---
 
-**Total Skills**: 24  
-**Last Updated**: 2026-11-02  
+**Total Skills**: 18  
+**Last Updated**: 2026-11-05  
 **Canonical location**: `~/devel/ChickenWorld/ChickenWorldSkills/` (the only git clone)  
 **Consumers**: `~/.config/opencode/skills` and `~/.claude/skills` are symlinks to the clone
