@@ -27,5 +27,5 @@ description: Write cross-thread safe code for ESP32 and native platforms
 - [CHICKENWORLD_LIFECYCLE_MANAGEMENT.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/CHICKENWORLD_LIFECYCLE_MANAGEMENT.md) - Lifecycle safety
 
 **Skills this relies on**:
-- [chickenworld-coding](../chickenworld-coding/SKILL.md) - General coding standards
+- [chickenworld-coding](../coding/SKILL.md) - General coding standards
 - [chickenworld-testing](../chickenworld-testing/SKILL.md) - Test cross-thread safety

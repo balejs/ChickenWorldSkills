@@ -54,8 +54,8 @@ description: Follow systematic investigation procedures for debugging
 7. Verification results
 
 **Skills this relies on**:
-- [native-crash-analysis](../native-crash-analysis/SKILL.md) - Native crash analysis
-- [esp32-crash-analysis](../esp32-crash-analysis/SKILL.md) - ESP32 crash analysis
+- [native-crash-analysis](../crash-analysis/SKILL.md) - Native crash analysis
+- [esp32-crash-analysis](../crash-analysis/SKILL.md) - ESP32 crash analysis
 - [chickenworld-testing](../chickenworld-testing/SKILL.md) - Testing procedures
 
 ---
@@ -73,7 +73,7 @@ After fix is verified (20 iterations, 0 crashes):
    - Investigation docs → Keep in `ChickenDocs/[Project]/`
 
 2. **Follow Git Workflow**:
-   See [chickenworld-git-workflow](../chickenworld-git-workflow/SKILL.md) for:
+   See [chickenworld-git-workflow](../git-investigation-branches/SKILL.md) for:
    - Commit separation rules
    - Investigate finalization procedure
    - Verification checklist
@@ -89,5 +89,5 @@ After fix is verified (20 iterations, 0 crashes):
 
 - [GIT_COMMIT_GUIDELINES.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/GIT_COMMIT_GUIDELINES.md) - Commit format
 - [INVESTIGATION_PROCEDURE.md](/Users/marco/devel/ChickenWorld/ChickenDocs/INVESTIGATION_PROCEDURE.md) - Complete investigation workflow
-- [chickenworld-git-workflow](../chickenworld-git-workflow/SKILL.md) - Investigation finalization procedure
+- [chickenworld-git-workflow](../git-investigation-branches/SKILL.md) - Investigation finalization procedure
 

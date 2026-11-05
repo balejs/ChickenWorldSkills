@@ -48,7 +48,7 @@ description: Document project-specific details in ChickenDocs
 **For investigation-specific content:**
 
 **Option A**: Move to ChickenDocs/[ProjectName]/ when investigation is complete
-- File naming: `INVESTIGATION_YYYY-MM-DD.md` or `TOPIC_FIX_YYYY-MM-DD.md`
+- File naming: `<TOPIC>_<YYYY-MM-DD>.md` (topic first - matches the ~160 existing files)
 
 **Option B**: Keep in project's `investigation/` folder during active work
 - File naming: `SESSION_YYYYMMDD.md`, `FINDINGS_YYYYMMDD.md`
@@ -92,7 +92,7 @@ ChickenDocs/ChickenSoftwareUpdateLib/
 ├── ChickenSoftwareUpdateLib_PROJECT_STRUCTURE.md  # Directory, dependencies
 ├── TEST_ARCHITECTURE.md  # Test system architecture
 ├── TEST_SEQUENCING.md  # Test sequence documentation
-├── INVESTIGATION_YYYY-MM-DD.md  # Investigation reports
+├── <TOPIC>_<YYYY-MM-DD>.md      # Investigation reports
 └── LESSONS_LEARNED_YYYY-MM-DD.md  # Lessons from investigations
 ```
 

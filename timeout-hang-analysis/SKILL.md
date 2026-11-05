@@ -92,6 +92,6 @@ timeout around the blocking call, not by raising the global value.
 - [Common/LOOPED_LISTENER_CIRCULAR_REFERENCE_2025-12-06.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/LOOPED_LISTENER_CIRCULAR_REFERENCE_2025-12-06.md) - A hang whose cause is a leaked listener
 
 **Skills this relies on**:
-- [networking-debugging](../networking-debugging/SKILL.md) - Networking issues
-- [tls-debugging](../tls-debugging/SKILL.md) - TLS/HTTPS issues
+- [networking-debugging](../network-debugging/SKILL.md) - Networking issues
+- [tls-debugging](../network-debugging/SKILL.md) - TLS/HTTPS issues
 - [investigation-workflow](../investigation-workflow/SKILL.md) - Evidence-based investigation

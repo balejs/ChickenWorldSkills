@@ -29,14 +29,31 @@ description: Follow testing procedures for ChickenWorld projects
 - **Why**: `tee` keeps stdout/stderr connected to terminal, causing confusion about where logs are written. Breaks output redirection methodology for investigation.
 - **Reference**: [ESP32_OTA_TEST_PROCEDURE_2026-05-31.md](../../investigation/ESP32_OTA_TEST_PROCEDURE_2026-05-31.md) - "MISTAKE 2: Using | tee instead of >"
 
-**Library Dependencies Rule** (Added 2026-06-04):
-- **Normally DO NOT clean** `.pio/libdeps/` - PlatformIO caches dependencies efficiently
-- **Only clean** if:
-  - We have unexplainable quirky behavior that suggests stale cached state
-  - We modified dependency libraries directly in `.pio/libdeps/`
-  - Tests behave inconsistently across runs with no logical explanation
-- **Clean command** (when truly necessary): `rm -rf .pio/libdeps/`
-- **Why**: Unnecessary cleaning wastes time during normal test iterations and doesn't fix actual bugs
+**Library Dependencies Rule** (revised 2026-11-05):
+
+The goal is **freshness, not emptiness**. Verify every vendored library is up to date and
+carry no uncommitted work; delete only what is actually stale.
+
+```bash
+for d in .pio/libdeps/*/; do for l in "$d"*/; do
+  [ -d "$l/.git" ] || continue
+  printf "%-34s %-42s %s dirty\n" "${l#".pio/libdeps/"}" \
+    "$(git -C "$l" branch --show-current)" "$(git -C "$l" status --porcelain|wc -l|tr -d ' ')"
+done; done
+```
+
+| State | Action |
+|---|---|
+| Clean, on the pinned ref, current | Do nothing - the cache is correct |
+| Behind its remote | `git -C <lib> pull --ff-only` |
+| **Dirty** | **STOP** - uncommitted edits live here. Commit to a testing branch in that lib's repo before touching the cache |
+| Stale, causing unexplained behaviour | Remove **that library's directory only**, then `pio update -e <env>` |
+
+`rm -rf .pio/libdeps/` is a last resort, not a habit: it discards unpushed edits in any
+vendored copy and forces a full re-resolve of every library. The earlier blanket-clean advice
+was written when the agent could not be trusted to check state; it can, so check instead.
+
+Full procedure: [dependency-management](../dependency-management/SKILL.md).
 
 **Workflow**:
 1. Read [ChickenTools/QUICK_REFERENCE.md](../../ChickenTools/QUICK_REFERENCE.md)
@@ -74,4 +91,4 @@ SHttpServer _httpServer;
 
 **Skills this relies on**:
 - [build-and-test-all](../build-and-test-all/SKILL.md) - Automated test runner
-- [esp32-crash-analysis](../esp32-crash-analysis/SKILL.md) - ESP32 crash analysis
+- [esp32-crash-analysis](../crash-analysis/SKILL.md) - ESP32 crash analysis

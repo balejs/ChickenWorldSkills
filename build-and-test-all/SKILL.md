@@ -18,22 +18,22 @@ description: Use ChickenTools build_and_test_all.py for comprehensive validation
 **Workflow**:
 ```bash
 # 1. Test all projects on main branch (native)
-./bin/build_and_test_all.py
+~/devel/ChickenWorld/ChickenTools/bin/build_and_test_all.py
 
 # 2. Incremental test - only changed projects + dependents
-./bin/build_and_test_all.py --incremental
+~/devel/ChickenWorld/ChickenTools/bin/build_and_test_all.py --incremental
 
 # 3. Test on ESP32 hardware
-./bin/build_and_test_all.py --env esp32dev --branch 1.1.0
+~/devel/ChickenWorld/ChickenTools/bin/build_and_test_all.py --env esp32dev --branch 1.1.0
 
 # 4. Generate dependency visualization
-./bin/build_and_test_all.py --deps-html
+~/devel/ChickenWorld/ChickenTools/bin/build_and_test_all.py --deps-html
 ```
 
 **Key references**:
-- [ChickenTools/README.md](../../ChickenTools/README.md) - Complete tool guide
+- [ChickenTools/README.md](/Users/marco/devel/ChickenWorld/ChickenTools/README.md) - Complete tool guide
 - [ChickenDocs/Common/CHICKENTOOLS.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/CHICKENTOOLS.md) - Documentation reference
-- [ChickenTools/QUICK_REFERENCE.md](../../ChickenTools/QUICK_REFERENCE.md) - Quick command reference
+- [ChickenTools/QUICK_REFERENCE.md](/Users/marco/devel/ChickenWorld/ChickenTools/QUICK_REFERENCE.md) - Quick command reference
 - [BUILD_PROCEDURES/PlatformIO_Dependency_Management.md](/Users/marco/devel/ChickenWorld/ChickenDocs/BUILD_PROCEDURES/PlatformIO_Dependency_Management.md) - Dependency handling
 
 **Options summary**:
@@ -44,4 +44,4 @@ description: Use ChickenTools build_and_test_all.py for comprehensive validation
 
 **Skills this relies on**:
 - [chickenworld-testing](../chickenworld-testing/SKILL.md) - Testing procedures
-- [dependency-management](../dependency-management/SKILL.md) - Dependency handling
+- [dependency-management](../dependency-management/SKILL.md) - Keeping .pio/libdeps fresh
