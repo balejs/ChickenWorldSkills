@@ -27,10 +27,24 @@ outlive the session; work is delegated to a fresh session; end of session with a
 6. Emit the prompt that **forces the load step** — it makes the next session read the file
    and restate step 1 and its expected output. It does not summarise the findings.
 
+## Consuming one
+
+1. **Confirm currency.** The project's consolidated investigation doc names exactly one
+   handoff. Any other file — or one carrying a `SUPERSEDED` banner — is history: read it, do
+   not run it.
+2. **Stamp `CLAIMED <timestamp>` at the top and commit**, before touching anything else. Two
+   sessions acting on one handoff means concurrent test blocks, and concurrent results are
+   invalid.
+3. Load section 0, then act on section 4.
+4. When you retire, **supersede** the file you consumed: a first-line banner naming your
+   successor. Move it to `investigation/archive/handoffs/` only when it is clutter.
+
 ## Hard rules
 
 - **Never report a context percentage.** No tool measures it; "nearly exhausted" is an
   inference. The observable 90% signal is a continuation summary at session start.
+- **Never delete a handoff on pickup.** Claim → supersede → archive. Deleting on read destroys
+  the state record if the pickup then fails, and destroys the evidence of what was expected.
 - **Name the skills explicitly.** They are not auto-discovered; unlisted means unread.
 - **Every next operation carries `expected` and `contradiction`** — otherwise a surprising
   result is indistinguishable from a broken harness.
