@@ -27,6 +27,28 @@ and nothing else.
 4. **ALWAYS** let `ChickenPtr` own lifetime - never `delete` manually
 5. **ALWAYS** pass an explicit `LoopScheduler` into anything that may run cross-thread
    (see cross-thread-safe-code)
+6. **Default to Python 3; shell is the exception and needs a reason.** Anything with a loop, a
+   branch, or more than ~5 lines is Python. Shell only for: (a) mutating the caller's
+   environment (`source`, `export`, `cd`), (b) a literal 1–3 command invocation with no
+   branching, (c) job/signal control (`trap`, `wait`), (d) a `/bin/sh` toolchain hook we
+   can't change. Never Perl, Ruby, PHP or node unless Marco explicitly asks.
+   See ChickenDocs → *Scripting Language Convention*.
+
+## Scripting
+
+Scripts live in `ChickenTools/bin/*.py` (workspace-wide) or `<project>/*.py` (project-local,
+like `classify_failures.py`). **Python is the default** — see critical rule 6 for the only
+four cases where shell is legitimate.
+
+Express ordered decision logic as a **named list of rules, each carrying its own rationale**,
+not as a compact `if/elsif` chain with the explanation in a comment 50 lines away. The reader
+has to be able to see *why* a gate sits where it sits at the point of decision.
+
+Always give a shebang (`#!/usr/bin/env python3`) and `chmod +x` — a script without one runs
+under `sh` when invoked directly, which is how `classify_failures.pl` failed on 2026-11-06.
+
+Parse device logs in Python (`open(p,"rb").read().decode("utf-8","replace")`), not shell
+`grep`: NUL bytes make plain `grep` silently return nothing.
 
 ## Types
 

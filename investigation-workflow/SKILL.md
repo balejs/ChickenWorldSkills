@@ -38,6 +38,15 @@ description: Follow systematic investigation procedures for debugging
 # 0 crashes = fix verified
 ```
 
+**Analysis scripts are Python — by default, not by argument.** Every script an investigation
+produces — log classifiers, margin extractors, correlation tools — is Python 3. Shell is only
+legitimate for the four narrow cases in skill `coding` rule 6 (caller-env mutation, 1–3
+commands with no branching, job/signal control, `/bin/sh` toolchain hook); log analysis is
+**not** one of them, because NUL bytes make plain `grep` silently return nothing. Never Perl.
+Give it a shebang, `chmod +x`, and put the *reason* for each decision inline at the decision
+point rather than in a comment block far away, because Marco reads these afterwards.
+See ChickenDocs → *Scripting Language Convention* and skill `coding` rule 6.
+
 **Key references**:
 - [ChickenDocs/INVESTIGATION_PROCEDURE.md](/Users/marco/devel/ChickenWorld/ChickenDocs/INVESTIGATION_PROCEDURE.md) - Complete investigation procedure
 - [ChickenDocs/Debugging/DEBUGGING_WORKFLOW_LESSONS.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Debugging/DEBUGGING_WORKFLOW_LESSONS.md) - Debugging lessons
