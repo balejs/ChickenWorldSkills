@@ -24,14 +24,16 @@ outlive the session; work is delegated to a fresh session; end of session with a
    (branch, commits, tree, processes) is *re-measured*, not remembered.
 5. Commit on the investigation branch; name the file from the consolidated investigation doc
    so a cold session finds it.
-6. Emit the prompt that **forces the load step** — it makes the next session read the file
+6. Run the currency sweep — `~/devel/ChickenWorld/ChickenTools/bin/handoff_check.py .` — and
+   get a clean exit before you call the handoff written.
+7. Emit the prompt that **forces the load step** — it makes the next session read the file
    and restate step 1 and its expected output. It does not summarise the findings.
 
 ## Consuming one
 
-1. **Confirm currency.** The project's consolidated investigation doc names exactly one
-   handoff. Any other file — or one carrying a `SUPERSEDED` banner — is history: read it, do
-   not run it.
+1. **Confirm currency.** `handoff_check.py .` says which handoff the investigation docs name
+   and flags unmarked stale ones. Any other file — or one carrying a `SUPERSEDED` banner — is
+   history: read it, do not run it.
 2. **Stamp `CLAIMED <timestamp>` at the top and commit**, before touching anything else. Two
    sessions acting on one handoff means concurrent test blocks, and concurrent results are
    invalid.
@@ -55,5 +57,6 @@ outlive the session; work is delegated to a fresh session; end of session with a
 ## Reference
 
 - `ChickenDocs/Common/SESSION_HANDOFF.md` — sections, triggers, rationale, the path check
+- `ChickenTools/bin/handoff_check.py` — currency sweep; `--self-test` after any change to it
 - `ChickenDocs/Common/DEEP_SAVE_PROCEDURE.md` — the knowledge half; capacity-trigger caveat
 - `ChickenDocs/INVESTIGATION_PROCEDURE.md` — the loop a handoff resumes
