@@ -13,7 +13,7 @@ the other is pushed.
 
 ## Overview
 
-This repository contains **18 skills** that enforce ChickenWorld coding standards, testing procedures, and best practices across all projects.
+This repository contains **19 skills** that enforce ChickenWorld coding standards, testing procedures, and best practices across all projects.
 
 Skills follow **Option B** format:
 - 10-15 lines with workflow + links
@@ -58,6 +58,7 @@ Skills follow **Option B** format:
 | [document-project-docs](document-project-docs/SKILL.md) | Document project-specific details in ChickenDocs |
 | [organize-agents](organize-agents/SKILL.md) | Organize AGENTS.md files in ChickenWorld projects |
 | [deep-save](deep-save/SKILL.md) | Preserve session context, evidence and lessons before they are lost, routing each to its correct home |
+| [session-handoff](session-handoff/SKILL.md) | Prepare the handoff a fresh session needs to continue - live state, skills to load, next operations and expected results |
 ### 🏗️ Project and Dependencies
 
 | Skill | Purpose |
@@ -135,6 +136,12 @@ Tools used by skills with corresponding skill links:
 
 1. Use [build-and-test-all](build-and-test-all/SKILL.md) for multi-project testing
 2. Manage dependencies with [dependency-management](dependency-management/SKILL.md)
+
+### Ending or Handing Off a Session
+
+1. Preserve the knowledge with [deep-save](deep-save/SKILL.md) - facts, derivations, lessons
+2. Then [session-handoff](session-handoff/SKILL.md) - live state, skills the next session must
+   load, the next operations and what each is expected to print
 
 ---
 
