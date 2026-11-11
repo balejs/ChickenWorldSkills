@@ -11,21 +11,25 @@ description: Follow testing procedures for ChickenWorld projects
 
 **CRITICAL RULES**:
 1. **ALWAYS** use testing tools (build_and_test_all.py, test_esp32_crash_repeat.py)
-2. **ALWAYS** enable verbose logging (-vvv) for ESP32 tests
+2. **ALWAYS** enable verbose logging with **`-vv`** for ESP32 tests. ⚠️ **`-vvv` is broken on
+   PlatformIO core 6.2.0** (platformio-core#5516): the block dies in ~10 s with `ERRORED` before any
+   test runs. `-vv` is a **temporary measure until SCons or PlatformIO fix it** — do not "fix" this
+   back to `-vvv` on the assumption it was a typo
 3. **ALWAYS** use crash detection scripts for ESP32 tests that may crash/reboot
-4. **NEVER** run pio test directly for crash-prone tests
-5. **ALWAYS** save test output to timestamped log file: `timeout 120 pio test -e {env} -vvv 2>&1 > /Users/marco/devel/ChickenWorld/{Project}/investigation/logs/{test_name}_{YYYYMMDD_HHMMSS}.log`
+4. **NEVER** run `pio test` directly for crash-prone tests
+5. **ALWAYS** save test output to timestamped log file: `timeout 120 pio test -e {env} -vv 2>&1 > /Users/marco/devel/ChickenWorld/{Project}/investigation/logs/{test_name}_{YYYYMMDD_HHMMSS}.log`
 6. **NEVER** re-run tests just to grep output - ALWAYS parse existing log files in investigation/logs/
 7. **NEVER** assume heap objects at same logical location will have same address across test runs - EACH heap allocation can occur at different addresses
 8. **NEVER** debug object lifetime issues by assuming addresses match - use actual address values from logs, never "it should be the same"
 9. **NEVER** use `| tee` for output redirection - ALWAYS use `>` (redirect) only - `tee` keeps stdout/stderr connected to terminal, breaking log methodology
 10. **NEVER** run `pio test` / `platformio test` in parallel on the same project - concurrent builds corrupt log captures and produce incomplete output
-11. **ALWAYS** kill the test server before each test - `pkill -f test_server.py; sleep 3; ps aux | grep test_server.py | grep -v grep || echo "clean"` - prevents `[Errno 48] Address already in use`
+11. **ALWAYS** kill the test server **before AND after** each test - `pkill -f test_server.py; sleep 3; ps aux | grep test_server.py | grep -v grep || echo "clean"` - before, to prevent `[Errno 48] Address already in use`; after, because a server orphaned at PPID 1 keeps the ports held and will poison the next run. ⚠️ `pgrep -f "python.*test_server"` **cannot see it** (the interpreter's path is `.../MacOS/Python`, capital P) and does self-match the caller's own shell — check the **ports**: `lsof -nP -iTCP:8000 -sTCP:LISTEN`
 12. **NEVER** report a conclusion without the log lines that support it - quote timestamps and file:line, never assert what the logs do not show
+13. **ALWAYS** apply a library change to **every** `.pio/libdeps/<env>/` clone, and verify the commits before a run. The cache is keyed by environment, so `native` and `esp32dev` hold **independent git clones** of the same library and can sit on different code. Carry a commit with `git format-patch -1` + `git am`; never `rm -rf .pio/libdeps/` (those clones hold unpushed committed work). See [DEPENDENCY_MODIFICATION_WORKFLOW.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/DEPENDENCY_MODIFICATION_WORKFLOW.md) § *There is more than one cached copy*
 
 **Output Redirection Rule** (Added 2026-06-02):
-- ❌ **WRONG**: `pio test -e esp32dev -vvv 2>&1 | tee output.log`
-- ✅ **CORRECT**: `pio test -e esp32dev -vvv 2>&1 > output.log`
+- ❌ **WRONG**: `pio test -e esp32dev -vv 2>&1 | tee output.log`
+- ✅ **CORRECT**: `pio test -e esp32dev -vv 2>&1 > output.log`
 - **Why**: `tee` keeps stdout/stderr connected to terminal, causing confusion about where logs are written. Breaks output redirection methodology for investigation.
 - **Reference**: [ESP32_OTA_TEST_PROCEDURE_2026-05-31.md](../../investigation/ESP32_OTA_TEST_PROCEDURE_2026-05-31.md) - "MISTAKE 2: Using | tee instead of >"
 
