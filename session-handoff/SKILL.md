@@ -28,6 +28,9 @@ outlive the session; work is delegated to a fresh session; end of session with a
    get a clean exit before you call the handoff written.
 7. Emit the prompt that **forces the load step** — it makes the next session read the file
    and restate step 1 and its expected output. It does not summarise the findings.
+8. **Show that prompt in the conversation**, in a copyable fenced block, as the last thing in
+   your reply. Writing it into the doc is not emitting it — the test is whether Marco can start
+   the next session by selecting text from your reply without opening a file.
 
 ## Consuming one
 
@@ -52,6 +55,7 @@ outlive the session; work is delegated to a fresh session; end of session with a
   result is indistinguishable from a broken harness.
 - **Record built-but-not-enabled and armed-but-inactive** mechanisms; source code alone does
   not show them.
+- **End by showing the paste-ready prompt**, in a fenced block, at the end of the reply.
 - No root cause, no `RESOLVED`. Handoffs describe; Marco closes.
 
 ## Reference
