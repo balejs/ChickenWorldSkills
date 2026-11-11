@@ -16,8 +16,9 @@ explanation.
 1. **NEVER** use a name the reader does not already have — internal IDs (`T1`, `N4`), bare line
    numbers (`:648`), hashes, log filenames. Expand it inline or recap it in one context block
 2. **ALWAYS** quote the 3–8 lines you are describing. A line number is a pointer, not an explanation
-3. **ALWAYS** name the function and give an absolute `file:line`, plus
-   `code -g /abs/path/File.cpp:648` so the reference is openable
+3. **ALWAYS** name the function and write `File.cpp:648` — never a bare `:648` — and state once per
+   explainer which directory those files live in. Escalate to `code -g <abs path>:<line>` only when
+   the short form is ambiguous
 4. **ALWAYS** put context in exactly one block at one end, or embed it per paragraph — never neither
 5. **ALWAYS** give numbers units and a source, and mark measured vs inferred
 6. **NEVER** write sentences that only announce or connect other sentences; the first sentence
