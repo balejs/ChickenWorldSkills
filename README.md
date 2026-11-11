@@ -60,6 +60,7 @@ Skills follow **Option B** format:
 | [deep-save](deep-save/SKILL.md) | Preserve session context, evidence and lessons before they are lost, routing each to its correct home |
 | [session-handoff](session-handoff/SKILL.md) | Prepare the handoff a fresh session needs to continue - live state, skills to load, next operations and expected results |
 | [explaining-to-marco](explaining-to-marco/SKILL.md) | Write an explanation Marco can read without the agent's context - no unrecapped IDs, quoted code, openable file:line |
+| [review-for-approval](review-for-approval/SKILL.md) | Present a completed, verified change for sign-off - per-commit measurements, what was not done, what the fix unmasked |
 ### 🏗️ Project and Dependencies
 
 | Skill | Purpose |
