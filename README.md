@@ -13,7 +13,7 @@ the other is pushed.
 
 ## Overview
 
-This repository contains **19 skills** that enforce ChickenWorld coding standards, testing procedures, and best practices across all projects.
+This repository contains **20 skills** that enforce ChickenWorld coding standards, testing procedures, and best practices across all projects.
 
 Skills follow **Option B** format:
 - 10-15 lines with workflow + links
@@ -59,6 +59,7 @@ Skills follow **Option B** format:
 | [organize-agents](organize-agents/SKILL.md) | Organize AGENTS.md files in ChickenWorld projects |
 | [deep-save](deep-save/SKILL.md) | Preserve session context, evidence and lessons before they are lost, routing each to its correct home |
 | [session-handoff](session-handoff/SKILL.md) | Prepare the handoff a fresh session needs to continue - live state, skills to load, next operations and expected results |
+| [explaining-to-marco](explaining-to-marco/SKILL.md) | Write an explanation Marco can read without the agent's context - no unrecapped IDs, quoted code, openable file:line |
 ### 🏗️ Project and Dependencies
 
 | Skill | Purpose |
@@ -166,7 +167,7 @@ When creating new skills:
 
 ---
 
-**Total Skills**: 18  
-**Last Updated**: 2026-11-05  
+**Total Skills**: 20  
+**Last Updated**: 2026-11-10  
 **Canonical location**: `~/devel/ChickenWorld/ChickenWorldSkills/` (the only git clone)  
 **Consumers**: `~/.config/opencode/skills` and `~/.claude/skills` are symlinks to the clone
