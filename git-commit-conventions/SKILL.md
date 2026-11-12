@@ -19,7 +19,11 @@ Split from `chickenworld-git-workflow`.
 3. **ALWAYS** keep a commit to one logical change
 4. **ALWAYS** separate code and documentation into distinct commits
 5. **ALWAYS** check `git diff --cached --stat` before committing - `git add <file>` stages
-   every pre-existing change to that file, including deletions made earlier in the session
+   every pre-existing change to that file, including deletions made earlier in the session.
+   **Test:** does the message describe exactly what is staged? The scripted-edit case is the trap: if
+   the message was drafted for a change a script then failed to apply, the commit still succeeds
+   containing *something else*, and the message describes work that never happened. Verify the edit
+   asserted true before staging, and read the stat against the message rather than just for emptiness.
 
 ---
 
