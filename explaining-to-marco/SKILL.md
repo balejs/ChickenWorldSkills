@@ -26,13 +26,21 @@ explanation.
 7. **ALWAYS** run the final-pass checklist on the draft before showing it — the pass is a step, not
    an intention
 8. **ALWAYS** keep the prose inside the budget: **≤ 200 words** for a simple summarization (status,
-   what changed, what's next), **≤ 500** for anything else. Code blocks, tables, log excerpts and
-   command listings do not count — they are the payload, not the prose. Past 500 only when Marco
-   asked for more detail, and only for the topic that genuinely cannot be shorter; say which part
-   before writing it. **After a burst of work the pull is to recount, not report — that is when
-   this bites.** Over budget: cut restatement and narration first, never the mechanism, the numbers
-   or the contradiction clause; if it still cannot fit, it is a document plus a 200-word summary.
+   what changed, what's next), **≤ 500** for anything else, **≤ 1000** for a report on work
+   performed — what was done, what it measured, what remains. Code blocks, log excerpts, command
+   listings and **data** tables do not count; rule 9 says when a table is data and when it is prose.
+   Past the applicable budget only when Marco asked for more detail, and only for the topic that
+   genuinely cannot be shorter; say which part before writing it. **After a burst of work the pull
+   is to recount, not report — that is when this bites.** Over budget: cut restatement and narration
+   first, never the mechanism, the numbers or the contradiction clause; if it still cannot fit, it is
+   a document plus a 200-word summary.
    **Test**: the `wc -w` command in the reference doc, run on the actual draft
+9. **NEVER** use a table to hold sentences. Tables report **data** — counts, breakdowns, stats, a
+   measured value per item, a before/after pair. A sequence, a set of steps, or a list of items each
+   needing its own sentence is an **itemized list**, numbered when order matters. Because rule 8
+   excludes tables from the count, a table of sentences is the cheapest way to look concise while
+   saying more; if you reach for one, convert it to a list and re-count.
+   **Test**: read the column headers — values belong in a table, sentences belong in a list
 
 **Workflow**: draft → count the prose → run the checklist in the reference doc → fix → show.
 
