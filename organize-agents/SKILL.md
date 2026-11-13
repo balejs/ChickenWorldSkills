@@ -17,31 +17,14 @@ description: Organize AGENTS.md files in ChickenWorld projects
 
 ## Rules
 
-**AGENTS.md may be up to 1000 lines.** Amended 2026-11-11 (Marco) — the previous ≤100 target
-pushed people to strip rules that had earned their place by being broken, and a 100-line index of
-things you must not do is shorter than the incident it prevents. Size is no longer the goal;
-*reachability* is: every section either inline-and-findable or indexed with a resolving link.
+**AGENTS.md may be up to 1000 lines** (was ≤100; amended 2026-11-11). Size is an alarm, not a
+target — the operative tests, and the general-interest / investigation-specific / repository-facts
+split that decides where content goes, are owned by
+[DOCUMENTATION_ORGANIZATION_RULES.md § Core Principle](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/DOCUMENTATION_ORGANIZATION_RULES.md).
+Read that before moving content; this skill is the procedure, not the rule.
 
-It must contain:
-1. Search rule (add references when finding useful docs)
-2. A router — trigger table or quick reference index — with a link per topic
-3. Detailed content **only where it is general interest** (see the split below)
-4. Project facts: build flags, env vars, test-server quirks — the things that are true of *this*
-   repository and of no other
-
-### The split that decides where content goes
-
-| Content | Where it lives | Why |
-|---|---|---|
-| General interest — applies to any ChickenWorld library | `ChickenDocs` | one authority, shared by every library |
-| Investigation-specific — one issue's history, dated findings, session state | `project/investigation/` | it is evidence about one thing; promoting it pollutes every other library's setup |
-| This repository's facts — env vars, build flags, firmware paths | `AGENTS.md`, below the project-specific marker | true here, false elsewhere |
-
-**CRITICAL**: Detailed content of general interest must exist in ChickenDocs before an AGENTS.md
-reference to it is written. A link to a rule that is not at the other end is worse than no link —
-it reads as satisfied and teaches nothing. Content awaiting its owner belongs in a staging file
-under `investigation/`, named as such, with the promotion of the file that references it gated on
-the staging file being emptied.
+**CRITICAL**: All detailed content of general interest must exist in ChickenDocs before an AGENTS.md
+reference to it is written.
 
 ---
 
@@ -177,7 +160,7 @@ grep -r "lifecycle\|ChickenPtr" ChickenDocs/Common/ --include="*.md" | head -20
 ### Step 4: Update AGENTS.md
 - Keep only search rule + index table
 - Add minimal redirects for each category
-- Target: ≤1000 lines total, and every section reachable from the router
+- Target: every section reachable from the router; ≤1000 lines is the alarm, not the goal
 
 ---
 
