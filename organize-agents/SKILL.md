@@ -92,7 +92,7 @@ grep -r "ChickenSoftwareUpdate\|test.*sequenc" . --include="*.md"
 - Move test sequencing details there
 
 **Reference**:
-- [DOCUMENTATION_ORGANIZATION_RULES.md](DOCUMENTATION_ORGANIZATION_RULES.md) - Organization rules
+- [DOCUMENTATION_ORGANIZATION_RULES.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/DOCUMENTATION_ORGANIZATION_RULES.md) - Organization rules
 - [ChickenNetworkingLib_PROJECT_STRUCTURE.md](/Users/marco/devel/ChickenWorld/ChickenDocs/ChickenNetworkingLib/ChickenNetworkingLib_PROJECT_STRUCTURE.md) - Project structure template
 
 ### 4. Create Minimal Redirects in AGENTS.md
@@ -175,5 +175,5 @@ grep -r "lifecycle\|ChickenPtr" ChickenDocs/Common/ --include="*.md" | head -20
 ---
 
 **Created**: 2026-05-21
-**Last Updated**: 2026-11-12 (≤100 → ≤1000 lines; general-interest vs investigation-specific split)  
+**Last Updated**: 2026-11-12 (≤100 → ≤1000 lines; general-interest vs investigation-specific split; dead relative link to `DOCUMENTATION_ORGANIZATION_RULES.md` made absolute)  
 **Purpose**: Systematically reduce AGENTS.md to minimal index with proper references

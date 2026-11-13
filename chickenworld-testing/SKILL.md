@@ -32,7 +32,7 @@ description: Follow testing procedures for ChickenWorld projects
 - ❌ **WRONG**: `pio test -e esp32dev -vv 2>&1 | tee output.log`
 - ✅ **CORRECT**: `pio test -e esp32dev -vv 2>&1 > output.log`
 - **Why**: `tee` keeps stdout/stderr connected to terminal, causing confusion about where logs are written. Breaks output redirection methodology for investigation.
-- **Reference**: [ESP32_OTA_TEST_PROCEDURE_2026-05-31.md](../../investigation/ESP32_OTA_TEST_PROCEDURE_2026-05-31.md) - "MISTAKE 2: Using | tee instead of >"
+- **Reference**: [ESP32_OTA_TEST_PROCEDURE_2026-05-31.md](../../ChickenSoftwareUpdateLib/investigation/archive/ESP32_OTA_TEST_PROCEDURE_2026-05-31.md) - "MISTAKE 2: Using | tee instead of >"
 
 **Library Dependencies Rule** (revised 2026-11-05):
 
