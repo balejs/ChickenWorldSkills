@@ -175,5 +175,5 @@ grep -r "lifecycle\|ChickenPtr" ChickenDocs/Common/ --include="*.md" | head -20
 ---
 
 **Created**: 2026-05-21
-**Last Updated**: 2026-11-11 (≤100 → ≤1000 lines; general-interest vs investigation-specific split)  
+**Last Updated**: 2026-11-12 (≤100 → ≤1000 lines; general-interest vs investigation-specific split)  
 **Purpose**: Systematically reduce AGENTS.md to minimal index with proper references
