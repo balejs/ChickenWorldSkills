@@ -25,8 +25,16 @@ explanation.
    carries content
 7. **ALWAYS** run the final-pass checklist on the draft before showing it — the pass is a step, not
    an intention
+8. **ALWAYS** keep the prose inside the budget: **≤ 200 words** for a simple summarization (status,
+   what changed, what's next), **≤ 500** for anything else. Code blocks, tables, log excerpts and
+   command listings do not count — they are the payload, not the prose. Past 500 only when Marco
+   asked for more detail, and only for the topic that genuinely cannot be shorter; say which part
+   before writing it. **After a burst of work the pull is to recount, not report — that is when
+   this bites.** Over budget: cut restatement and narration first, never the mechanism, the numbers
+   or the contradiction clause; if it still cannot fit, it is a document plus a 200-word summary.
+   **Test**: the `wc -w` command in the reference doc, run on the actual draft
 
-**Workflow**: draft → run the checklist in the reference doc → fix → show.
+**Workflow**: draft → count the prose → run the checklist in the reference doc → fix → show.
 
 **Key references**:
 - [EXPLAINER_RULES.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/EXPLAINER_RULES.md) - the rules with triggers, tests and the final-pass checklist
