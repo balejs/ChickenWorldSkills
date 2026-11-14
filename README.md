@@ -3,7 +3,8 @@
 **Purpose**: Collection of AI agent skills for ChickenWorld development workflows
 
 **Canonical location**: `~/devel/ChickenWorld/ChickenWorldSkills/` - the only git clone  
-**Loaded by**: `~/.config/opencode/skills` and `~/.claude/skills`, both symlinks to the clone
+**Loaded by**: `~/.claude/skills`, a symlink to this clone.
+⚠️ **`~/.config/opencode/skills` is NOT a symlink** — measured 2026-11-14. It is a separate git clone with its own `.git`, last touched 2026-06-27, and its `chickenworld-testing/SKILL.md` differs from the canonical file. It still carries `create-skills`, `modify-skills`, `chickenworld-coding` and `chickenworld-git-workflow`, all of which were merged or split out of the current set. Anything loaded through that path is a stale copy. `skill-maintenance` rule: *never clone this repo elsewhere* — this clone is a standing violation and needs a decision (symlink it, or retire it).
 
 **Do not clone this repository elsewhere.** A second clone drifts silently: each copy accumulates
 commits and uncommitted edits the other never sees, and work can sit untracked in one copy while
@@ -13,7 +14,7 @@ the other is pushed.
 
 ## Overview
 
-This repository contains **20 skills** that enforce ChickenWorld coding standards, testing procedures, and best practices across all projects.
+This repository contains **21 skills** that enforce ChickenWorld coding standards, testing procedures, and best practices across all projects.
 
 Skills follow **Option B** format:
 - 10-15 lines with workflow + links
@@ -61,6 +62,7 @@ Skills follow **Option B** format:
 | [session-handoff](session-handoff/SKILL.md) | Prepare the handoff a fresh session needs to continue - live state, skills to load, next operations and expected results |
 | [explaining-to-marco](explaining-to-marco/SKILL.md) | Write an explanation Marco can read without the agent's context - no unrecapped IDs, quoted code, openable file:line |
 | [review-for-approval](review-for-approval/SKILL.md) | Present a completed, verified change for sign-off - per-commit measurements, what was not done, what the fix unmasked |
+| [filing-issues](filing-issues/SKILL.md) | File or manage a GitHub issue safely - per-action per-repo approval, a reproduction in that repo first, and explainer rules applied to the title, body and every comment |
 ### 🏗️ Project and Dependencies
 
 | Skill | Purpose |
@@ -168,7 +170,7 @@ When creating new skills:
 
 ---
 
-**Total Skills**: 20  
+**Total Skills**: 21  
 **Last Updated**: 2026-11-10  
 **Canonical location**: `~/devel/ChickenWorld/ChickenWorldSkills/` (the only git clone)  
-**Consumers**: `~/.config/opencode/skills` and `~/.claude/skills` are symlinks to the clone
+**Consumers**: `~/.claude/skills` is a symlink to the clone. `~/.config/opencode/skills` is a stale separate clone — see the warning at the top of this file
