@@ -3,9 +3,8 @@
 **Purpose**: Collection of AI agent skills for ChickenWorld development workflows
 
 **Canonical location**: `~/devel/ChickenWorld/ChickenWorldSkills/` - the only git clone  
-**Loaded by**: `~/.claude/skills`, a symlink to this clone.
-⚠️ **`~/.config/opencode/skills` is NOT a symlink** — measured 2026-11-14. It is a separate git clone with its own `.git`, last touched 2026-06-27, and its `chickenworld-testing/SKILL.md` differs from the canonical file. It still carries `create-skills`, `modify-skills`, `chickenworld-coding` and `chickenworld-git-workflow`, all of which were merged or split out of the current set. Anything loaded through that path is a stale copy. `skill-maintenance` rule: *never clone this repo elsewhere* — this clone is a standing violation and needs a decision (symlink it, or retire it).
-
+**Loaded by**: `~/.claude/skills` and `~/.config/opencode/skills`, both symlinks to this clone.
+✅ **Fixed 2026-11-14 12:15.** `~/.config/opencode/skills` was a **separate git clone** with its own `.git`, last touched 2026-06-27, carrying `create-skills`, `modify-skills`, `chickenworld-coding` and `chickenworld-git-workflow` — all merged or split out of the current set — plus uncommitted edits to three files and an uncommitted `timeout-hang-analysis/SKILL.md`. Every divergent item was **older** than canonical by mtime and had been deliberately superseded, so nothing new was lost. The clone was **moved aside, not deleted**: `~/.config/opencode/skills.stale-20261114-121534`. Delete it once opencode has been restarted and confirmed reading the symlink.
 **Do not clone this repository elsewhere.** A second clone drifts silently: each copy accumulates
 commits and uncommitted edits the other never sees, and work can sit untracked in one copy while
 the other is pushed.
