@@ -29,7 +29,10 @@ Not for progress reports (use `session-handoff`) and not for findings without a 
 
 **Workflow**: gather (branch, base, pushed?, per-commit run results, remaining reds) → write the
 packet → run the explainer final pass on it → present → record the decisions and their answers back
-into the packet.
+into the packet. ⚠️ **Presenting is its own protocol when Marco reviews live**: one commit per block,
+context before the diff, risks after it, stop for feedback — see
+[reviewing-block-by-block](../reviewing-block-by-block/SKILL.md). Do not answer a multi-commit review
+with one message.
 
 **Key references**:
 - `/Users/marco/devel/ChickenWorld/ChickenDocs/Common/REVIEW_FOR_APPROVAL.md` - the seven parts, the

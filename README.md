@@ -13,7 +13,7 @@ the other is pushed.
 
 ## Overview
 
-This repository contains **21 skills** that enforce ChickenWorld coding standards, testing procedures, and best practices across all projects.
+This repository contains **22 skills** that enforce ChickenWorld coding standards, testing procedures, and best practices across all projects.
 
 Skills follow **Option B** format:
 - 10-15 lines with workflow + links
@@ -61,6 +61,7 @@ Skills follow **Option B** format:
 | [session-handoff](session-handoff/SKILL.md) | Prepare the handoff a fresh session needs to continue - live state, skills to load, next operations and expected results |
 | [explaining-to-marco](explaining-to-marco/SKILL.md) | Write an explanation Marco can read without the agent's context - no unrecapped IDs, quoted code, openable file:line |
 | [review-for-approval](review-for-approval/SKILL.md) | Present a completed, verified change for sign-off - per-commit measurements, what was not done, what the fix unmasked |
+| [reviewing-block-by-block](reviewing-block-by-block/SKILL.md) | Conduct the live code review one commit at a time - context before the diff, risks after it, stop for feedback |
 | [filing-issues](filing-issues/SKILL.md) | File or manage a GitHub issue safely - per-action per-repo approval, a reproduction in that repo first, and explainer rules applied to the title, body and every comment |
 ### 🏗️ Project and Dependencies
 
