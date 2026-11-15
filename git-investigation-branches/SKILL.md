@@ -22,6 +22,12 @@ Split from `chickenworld-git-workflow`.
 3. **NEVER** rewrite branch history without a backup ref first
 4. **NEVER** merge an investigation branch into `1.1.0` - cherry-pick production changes only
 5. **ALWAYS** use `--force-with-lease`, never bare `--force`
+6. **ALWAYS** keep source, documentation and logs in distinct commits **on the investigation branch too**,
+   not just on the release branch. A mixed commit makes the cherry-pick a rescue instead of a selection,
+   and the recovery erases every trace of the violation from the branch anyone reviews.
+   **Test:** `git show --stat <commit>` lists only source, or only docs, or only logs. Full rule and the
+   commit that prompted it:
+   [GIT_COMMIT_GUIDELINES.md § Separating Code and Documentation Changes](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/GIT_COMMIT_GUIDELINES.md)
 
 ---
 
