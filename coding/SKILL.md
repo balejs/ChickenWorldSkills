@@ -33,6 +33,12 @@ and nothing else.
    branching, (c) job/signal control (`trap`, `wait`), (d) a `/bin/sh` toolchain hook we
    can't change. Never Perl, Ruby, PHP or node unless Marco explicitly asks.
    See ChickenDocs → *Scripting Language Convention*.
+7. **ALWAYS** hold code comments to the explainer rules: no identifiers that exist only outside
+   the repo (ledger rows like `L7`, investigation branch names, paths to documents that don't
+   ship), no sentence that only announces the next one, mechanism not discovery history, the
+   constraint on the line that creates it. Full rules with their tests: ChickenDocs →
+   *Code Comments Follow the Explainer Rules*.
+   **Test:** could a competent reader of this file alone understand the comment?
 
 ## Scripting
 
