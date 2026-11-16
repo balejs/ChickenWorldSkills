@@ -14,6 +14,11 @@ description: Follow systematic investigation procedures for debugging
 2. **ALWAYS** look at similar ChickenWorld code first
 3. **ALWAYS** document investigation process
 4. **ALWAYS** verify fix with multiple iterations (for crashes: 20 runs, 0 crashes)
+5. **NEVER** report an action in the past tense without naming the artefact that proves it — the commit
+   SHA, the file and section, the issue URL, the remote ref. Run the proving command *after* the action,
+   not from the intention that preceded it. Full rule: ChickenDocs → *Never Report an Action Without the
+   Artefact That Proves It*.
+   **Test:** could a reader with no memory of this session confirm the sentence from the artefact named in it?
 
 **Workflow**:
 ```bash
