@@ -24,6 +24,9 @@ change is large enough that one message cannot carry it. Not for writing the pac
    re-taking the measurements of every later block
 6. **ALWAYS** write the decisions and answers back into the packet file at the end, and restate which
    blocks were approved, rejected, or never reached
+7. **NEVER** reformat, compress or elide committed code when showing a diff — quote the hunk as it is in
+   the commit, with the declarations a fragment needs. A compressed hunk reads as a style defect in the
+   code. **Test:** does it match `git show <commit>` line for line?
 
 **Workflow**: packet file exists first → per block: context → diff with the reason per hunk → risks →
 stop → record the answer → next block → closing summary.
