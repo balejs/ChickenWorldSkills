@@ -16,7 +16,12 @@ rebasing/squashing/amending, or finalising and merging findings
 Split from `chickenworld-git-workflow`.
 
 **CRITICAL RULES**:
-1. **ALWAYS** create investigation branches locally; push only when collaborating
+1. **ALWAYS** create investigation branches locally. **Pushing one is permitted** - for backup, for
+   sharing, and so a GitHub issue can link the ledger and review packet that live on it. What stays
+   forbidden is *merging* one into `1.1.0` (rule 4) and letting its artifacts into release history.
+   **Measure the payload before the first push**: investigation logs are large and a push is permanent.
+   `git rev-list --objects <branch> --not --remotes=origin` then sum `%(objectsize)` - see
+   /Users/marco/devel/ChickenWorld/ChickenDocs/INVESTIGATION_PROCEDURE.md § *Pushing an investigation branch*
 2. **ALWAYS** edit a library under `.pio/libdeps/` on a dedicated testing branch, never on
    a release branch
 3. **NEVER** rewrite branch history without a backup ref first
@@ -38,7 +43,7 @@ Split from `chickenworld-git-workflow`.
 | Branch | Purpose | Status |
 |--------|---------|--------|
 | **1.1.0** | Main development branch | ✅ Active development |
-| **investigation/yymmddhhmm-* ** | Investigation branches | 📝 Local only (don't push) |
+| **investigation/yymmddhhmm-* ** | Investigation branches | 📝 Created locally; push permitted (rule 1), merge forbidden (rule 4) |
 | **fix/* ** | Bug fix branches | 🔄 For cherry-picking to 1.1.0 |
 | **release tags** | Version tags (1.1.0.1, 1.1.0.2, etc.) | 🏷️ When all tests pass |
 
@@ -78,13 +83,21 @@ git push origin 1.1.0.3
 git checkout -b investigation/2605211430-memory_leak
 ```
 
-**IMPORTANT**: Investigation branches are LOCAL ONLY
+**IMPORTANT**: Investigation branches are created locally and are **never merged** into `1.1.0`.
+Pushing one is allowed and often useful - it backs the work up and makes the ledger linkable from an
+issue - but check what you are about to send, because these branches accumulate test logs.
+
 ```bash
-# ❌ DON'T push investigation branches
+# ✅ fine, and now the normal way to make an investigation's evidence linkable
 git push origin investigation/2605211430-memory_leak
 
-# ✅ DO keep them local unless explicit collaboration needed
-```
+# ⚠️ but measure first: unique objects and their total size
+git rev-list --objects investigation/2605211430-memory_leak --not --remotes=origin |
+  awk '{print $1}' | git cat-file --batch-check='%(objectsize)' |
+  awk '{t+=$1} END {printf "%.1f MB\n", t/1048576}'
+
+# ❌ still forbidden: merging an investigation branch into the release branch
+git checkout 1.1.0 && git merge investigation/2605211430-memory_leak
 
 ### Workflow
 1. Create investigation branch from 1.1.0

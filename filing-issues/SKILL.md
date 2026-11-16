@@ -25,7 +25,11 @@ ChickenWorld repository; or when a finding points at a dependency's code.
    with the repo stated once, numbers with units and a source, lists over tables. Run the final-pass
    checklist as a step
 5. **ALWAYS** give frequency as *n* of *m* runs, and say when *m* is too small to mean anything
-6. **ALWAYS** link the ledger row that owns it — the ledger is the authority, the issue is the surface
+6. **ALWAYS** link the ledger row that owns it — the ledger is the authority, the issue is the surface.
+   Link it **pinned to a commit** (`/blob/<sha>/investigation/<file>.md`), not as a bare working-tree path
+   and not by branch name, so a reader without a clone can open it and a later rewrite cannot break the
+   link. Investigation branches may be pushed for exactly this reason
+   (`git-investigation-branches` rule 1)
 7. **NEVER** quietly delete a wrong claim: comment the disproof, close as *not a defect*, mark the ledger
    row `REFUTED` with its reopen condition
 
