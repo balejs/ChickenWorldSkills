@@ -27,6 +27,9 @@ description: Follow testing procedures for ChickenWorld projects
 12. **NEVER** report a conclusion without the log lines that support it - quote timestamps and file:line, never assert what the logs do not show
 13. **ALWAYS** apply a library change to **every** `.pio/libdeps/<env>/` clone, and verify the commits before a run. The cache is keyed by environment, so `native` and `esp32dev` hold **independent git clones** of the same library and can sit on different code. Carry a commit with `git format-patch -1` + `git am`; never `rm -rf .pio/libdeps/` (those clones hold unpushed committed work). See [DEPENDENCY_MODIFICATION_WORKFLOW.md](/Users/marco/devel/ChickenWorld/ChickenDocs/Common/DEPENDENCY_MODIFICATION_WORKFLOW.md) § *There is more than one cached copy*
 14. **ALWAYS** reach 100 % pass on **every** environment a modified library defines (native **and** esp32dev), repeatedly, before presenting the change or moving to a dependent — and then do the same in every dependent. A flaky test is a failing test; "red on purpose" is not an end state; a single green run proves nothing. Full statement and its three easy-to-miss consequences: /Users/marco/devel/ChickenWorld/ChickenDocs/Common/REVIEW_FOR_APPROVAL.md § *The acceptance gate*
+15. **NEVER** waive an environment yourself. The gate may be waived **only by Marco, for a named
+    environment, recorded in the review packet** with what the claim then rests on. Full rule:
+    /Users/marco/devel/ChickenWorld/ChickenDocs/Common/REVIEW_FOR_APPROVAL.md § *Waiving an environment*
 
 **Output Redirection Rule** (Added 2026-06-02):
 - ❌ **WRONG**: `pio test -e esp32dev -vv 2>&1 | tee output.log`

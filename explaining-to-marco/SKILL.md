@@ -9,6 +9,11 @@ description: Write an explanation, finding or answer that Marco can read without
 
 **Use when**: Answering a question, reporting a finding, or describing a change in conversation
 
+**Scope**: conversation, **and code comments, and generated documentation** — all three get rules 1–4 and
+5b; only conversation gets the word budget; investigation documents (ledgers, handoffs, packets) are
+exempt. The test is whether the reader shares your context, not how formal the file is. Full table:
+/Users/marco/devel/ChickenWorld/ChickenDocs/Common/EXPLAINER_RULES.md § *Scope*
+
 **Priority order**: readable → concise → non-prosaic. They conflict; cut words before cutting
 explanation.
 

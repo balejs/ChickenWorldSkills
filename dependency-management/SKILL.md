@@ -18,7 +18,13 @@ like it is using stale code
 ## CRITICAL RULES
 
 1. **NEVER** edit a library under `.pio/libdeps/` on a release branch. Create a dedicated
-   testing branch in that library's own repo first, and commit there
+   testing branch in that library's own repo first, and commit there. **Branch on the current
+   branch name, not on whether a testing branch exists** — `checkout -b` guarded by "is HEAD
+   detached?" leaves a clone that is already on `1.1.0` sitting on `1.1.0`, and the commit lands
+   there. Print `git branch --show-current` and require it to say `testing/<topic>` before editing.
+   Full rule, the wrong version, and the worktree-safe recovery:
+   /Users/marco/devel/ChickenWorld/ChickenDocs/Common/DEPENDENCY_MODIFICATION_WORKFLOW.md §
+   *Carrying a change into clones*
 2. **NEVER** commit library changes into the consuming project - they belong to the
    dependency's repository
 3. **ALWAYS** land the change in the dependency repo before updating anything that consumes it

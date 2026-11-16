@@ -23,7 +23,10 @@ outlive the session; work is delegated to a fresh session; end of session with a
 4. **Verify before declaring it written**: every absolute path resolves, and live state
    (branch, commits, tree, processes) is *re-measured*, not remembered.
 5. Commit on the investigation branch; name the file from the consolidated investigation doc
-   so a cold session finds it.
+   so a cold session finds it. **When the investigation is finished instead**, stamp the last
+   handoff `CLOSED` with **no successor**, edit the ledger's "Current handoff" line to say there
+   is none, and hand anything still open to the repository that owns it, with a reopen condition —
+   writing a successor for closed work manufactures a task for a cold session to pick up.
 6. Run the currency sweep — `~/devel/ChickenWorld/ChickenTools/bin/handoff_check.py .` — and
    get a clean exit before you call the handoff written.
 7. Emit the prompt that **forces the load step** — it makes the next session read the file
@@ -36,7 +39,9 @@ outlive the session; work is delegated to a fresh session; end of session with a
 
 1. **Confirm currency.** `handoff_check.py .` says which handoff the investigation docs name
    and flags unmarked stale ones. Any other file — or one carrying a `SUPERSEDED` banner — is
-   history: read it, do not run it.
+   history: read it, do not run it. A **`CLOSED`** banner means the investigation is finished and
+   there is deliberately no successor: do not claim it, do not invent work from its § 4, and check
+   the ledger's status line for what was handed to which repository.
 2. **Stamp `CLAIMED <timestamp>` at the top and commit**, before touching anything else. Two
    sessions acting on one handoff means concurrent test blocks, and concurrent results are
    invalid.
